@@ -325,8 +325,8 @@ button { font: inherit; border: 0; background: none; cursor: pointer; color: inh
   background:
     radial-gradient(90% 110% at 88% 38%, #0b1f96 0%, rgba(11,31,150,0) 55%),
     radial-gradient(120% 130% at 15% 100%, #b6c4ee 0%, rgba(182,196,238,0) 55%),
-    radial-gradient(100% 120% at 40% 60%, #7f97dd 0%, rgba(127,151,221,0) 65%),
-    linear-gradient(135deg, #2f62e8 0%, #3b63d8 50%, #90a5e0 100%);
+    radial-gradient(100% 120% at 40% 60%, #4a6fd8 0%, rgba(127,151,221,0) 65%),
+    linear-gradient(135deg, #2f62e8 0%, #3b63d8 50%, #4a6fd8 100%);
   display: flex; flex-direction: column; align-items: flex-start;
 }
 .offer-card h3 { margin-top: 52px; font-size: 32px; line-height: 34px; font-weight: 400; max-width: 395px; }
@@ -972,7 +972,7 @@ li.open .ind-body { opacity: 1; }
 .offer-card {
   background:
     radial-gradient(120% 120% at 85% 12%, #1f45d6 0%, rgba(31,69,214,0) 55%),
-    linear-gradient(140deg, #2E63F0 0%, #3f6ae6 48%, #7f97dd 100%);
+    linear-gradient(140deg, #2E63F0 0%, #3f6ae6 48%, #4a6fd8 100%);
 }
 
 /* 5. Аккордеоны — понятный кликабельный хитбокс на всю строку + hover-состояние */
