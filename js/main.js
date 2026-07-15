@@ -174,3 +174,44 @@ document.querySelectorAll('form.lead-form').forEach(form => {
     if (href && href === page) a.classList.add('active');
   });
 })();
+
+// ---------- Grid Beam: световой блик по сетке блоб-арта ----------
+document.querySelectorAll('.blob-art').forEach(art => {
+  const beam = document.createElement('i');
+  beam.className = 'ba-beam';
+  art.appendChild(beam);
+});
+
+// ---------- Count-up: анимация чисел в статистике при появлении ----------
+(function () {
+  const nums = document.querySelectorAll('.stat-card__num, .about-stat__num');
+  if (!nums.length) return;
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const ease = t => 1 - Math.pow(1 - t, 3);
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      io.unobserve(el);
+      const raw = el.textContent.trim();
+      const m = raw.match(/\d+/);
+      if (!m || reduce) return;                 // без числа или reduced-motion — оставляем как есть
+      const target = parseInt(m[0], 10);
+      const prefix = raw.slice(0, m.index);
+      const suffix = raw.slice(m.index + m[0].length);
+      const dur = 1400;
+      const t0 = performance.now();
+      el.textContent = prefix + '0' + suffix;
+      function tick(now) {
+        const p = Math.min((now - t0) / dur, 1);
+        el.textContent = prefix + Math.round(ease(p) * target) + suffix;
+        if (p < 1) requestAnimationFrame(tick);
+        else el.textContent = raw;              // возвращаем точный исходный текст
+      }
+      requestAnimationFrame(tick);
+    });
+  }, { threshold: 0.4 });
+
+  nums.forEach(el => io.observe(el));
+})();
