@@ -1026,3 +1026,49 @@ li.open .ind-body { opacity: 1; }
   .ba-beam { animation: none; opacity: 0; }
   .h-xl { animation: none; }
 }
+
+/* ==================== Перенос блоков из v2 (изображения-градиенты) ==================== */
+
+/* Сетка «Работаем с компаниями» — изображение f33.jpg вместо CSS-блоба */
+.industries__art {
+  position: absolute; left: -8px; bottom: -8px;
+  width: 72%; max-width: 942px; z-index: 1; pointer-events: none;
+}
+.industries__art img { display: block; width: 100%; height: auto; }
+
+/* Карточки услуг — «жидкие» синие текстуры wave1/2/3.jpg внизу карточки */
+.service-card__tex {
+  background-size: cover; background-position: center; background-repeat: no-repeat;
+}
+
+/* Оффер «Получите разбор» — левая карточка на r69.jpg, правая — сплошной accent */
+.offer__grid .offer-card:first-child {
+  background: #2E63F0 url('assets/r69.jpg') center/cover no-repeat;
+}
+.offer__grid .offer-card:last-child {
+  background: var(--accent);
+}
+
+/* Футер — плитки (клетки) + синее свечение + большой логотип БАЗА (как в v2) */
+.footer__graphic {
+  position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  overflow: hidden; border-radius: inherit;
+}
+.footer__glow {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(60% 95% at 50% 118%, #2E63F0 0%, #3f6ae6 34%, rgba(63,106,230,0) 68%),
+    radial-gradient(38% 72% at 50% 122%, #0F64FF 0%, rgba(15,100,255,0) 60%);
+}
+.footer__tiles { position: absolute; left: 0; top: 0; width: 1328px; height: 569px; }
+.footer__tiles .tile {
+  position: absolute; width: 141.58px; height: 107px;
+  border-radius: 12px; background: rgba(255,255,255,.12);
+}
+.footer__baza {
+  position: absolute; left: 50%; bottom: 40px; transform: translateX(-50%);
+  width: 378px; height: 96px; color: #fff; z-index: 2;
+}
+@media (max-width: 720px) {
+  .footer__baza { width: 240px; height: 62px; bottom: 28px; }
+}
