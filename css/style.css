@@ -1031,8 +1031,8 @@ li.open .ind-body { opacity: 1; }
 
 /* Сетка «Работаем с компаниями» — изображение f33.jpg вместо CSS-блоба */
 .industries__art {
-  position: absolute; left: -8px; bottom: -8px;
-  width: 72%; max-width: 942px; z-index: 1; pointer-events: none;
+  position: absolute; left: -24px; bottom: -24px;
+  width: 82%; max-width: 1000px; z-index: 1; pointer-events: none;
 }
 .industries__art img { display: block; width: 100%; height: auto; }
 
@@ -1055,19 +1055,18 @@ li.open .ind-body { opacity: 1; }
   overflow: hidden; border-radius: inherit;
 }
 .footer__glow {
-  position: absolute; inset: 0;
+  position: absolute; left: 0; right: 0; bottom: 0; height: 82%;
   background:
-    radial-gradient(60% 95% at 50% 118%, #2E63F0 0%, #3f6ae6 34%, rgba(63,106,230,0) 68%),
-    radial-gradient(38% 72% at 50% 122%, #0F64FF 0%, rgba(15,100,255,0) 60%);
+    radial-gradient(135% 155% at 50% 100%, #2E63F0 0%, #3f6ae6 26%, #6d8ce0 48%, rgba(120,146,224,0) 76%);
 }
-.footer__tiles { position: absolute; left: 0; top: 0; width: 1328px; height: 569px; }
+.footer__tiles { position: absolute; left: 0; bottom: 0; width: 1328px; height: 569px; }
 .footer__tiles .tile {
   position: absolute; width: 141.58px; height: 107px;
-  border-radius: 12px; background: rgba(255,255,255,.12);
+  border-radius: 12px; background: rgba(255,255,255,.14);
 }
 .footer__baza {
-  position: absolute; left: 50%; bottom: 40px; transform: translateX(-50%);
-  width: 378px; height: 96px; color: #fff; z-index: 2;
+  position: absolute; left: 0; right: 0; bottom: 44px; margin: 0 auto;
+  width: 378px; height: 96px; fill: #fff; z-index: 2;
 }
 @media (max-width: 720px) {
   .footer__baza { width: 240px; height: 62px; bottom: 28px; }
