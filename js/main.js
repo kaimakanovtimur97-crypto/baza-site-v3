@@ -236,3 +236,22 @@ document.querySelectorAll('.blob-art').forEach(art => {
     holder.appendChild(d);
   });
 })();
+
+// ---------- Hero-арт: плитки (клетки) как в макете Figma ----------
+(function () {
+  document.querySelectorAll('.hero__art .blob-art__grid').forEach(g => {
+    const W = 651, H = 492, tw = 100, th = 74, gx = 8, gy = 8;
+    const cols = Math.ceil(W / (tw + gx)), rows = Math.ceil(H / (th + gy));
+    for (let r = 0; r < rows; r++) {
+      for (let c = 0; c < cols; c++) {
+        const d = document.createElement('div');
+        d.className = 'tile';
+        d.style.left = (c * (tw + gx)) + 'px';
+        d.style.top = (r * (th + gy)) + 'px';
+        d.style.width = tw + 'px';
+        d.style.height = th + 'px';
+        g.appendChild(d);
+      }
+    }
+  });
+})();

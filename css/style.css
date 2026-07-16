@@ -182,7 +182,7 @@ button { font: inherit; border: 0; background: none; cursor: pointer; color: inh
   display: flex; flex-direction: column; justify-content: flex-end;
 }
 .stat-card__dot {
-  position: absolute; left: 24px; top: 24px;
+  position: absolute; right: 24px; top: 24px;
   width: 12px; height: 12px; border-radius: 50%; background: var(--accent);
 }
 .stat-card__num { font-size: 80px; line-height: 66px; letter-spacing: -0.011em; }
@@ -1055,9 +1055,9 @@ li.open .ind-body { opacity: 1; }
   overflow: hidden; border-radius: inherit;
 }
 .footer__glow {
-  position: absolute; left: 0; right: 0; bottom: 0; height: 82%;
+  position: absolute; left: 0; right: 0; bottom: 0; height: 70%;
   background:
-    radial-gradient(135% 155% at 50% 100%, #2E63F0 0%, #3f6ae6 26%, #6d8ce0 48%, rgba(120,146,224,0) 76%);
+    radial-gradient(130% 150% at 50% 100%, #2E63F0 0%, #3f6ae6 28%, #6d8ce0 50%, rgba(120,146,224,0) 78%);
 }
 .footer__tiles { position: absolute; left: 0; bottom: 0; width: 1328px; height: 569px; }
 .footer__tiles .tile {
@@ -1070,4 +1070,37 @@ li.open .ind-body { opacity: 1; }
 }
 @media (max-width: 720px) {
   .footer__baza { width: 240px; height: 62px; bottom: 28px; }
+}
+
+
+/* ==================== Правки под макет Figma ==================== */
+
+/* Заголовки — сплошной тёмный цвет как в макете (без анимированного градиента) */
+.h-xl {
+  background: none;
+  color: var(--text);
+  -webkit-text-fill-color: var(--text);
+  animation: none;
+}
+
+/* Кнопка «Получить аудит» на синей плашке карточек услуг (как в макете) */
+.service-card { }
+.service-card__cta {
+  position: absolute; left: 32px; bottom: 40px; z-index: 3;
+  display: inline-flex; align-items: center; justify-content: center;
+  height: 52px; padding: 0 28px;
+  border: 1px solid #fff; border-radius: 38px;
+  color: #fff; font-size: 16px; font-weight: 600; letter-spacing: -0.011em;
+  transition: background-color .2s ease, color .2s ease;
+}
+.service-card__cta:hover { background: #fff; color: var(--accent); }
+
+/* Hero-арт: сетка из скруглённых плиток (клетки) вместо тонких линий — как в макете */
+.hero__art .blob-art__grid::before { display: none; }
+.hero__art .blob-art__grid {
+  -webkit-mask: radial-gradient(60% 62% at 50% 48%, #000 44%, rgba(0,0,0,0) 86%);
+          mask: radial-gradient(60% 62% at 50% 48%, #000 44%, rgba(0,0,0,0) 86%);
+}
+.hero__art .blob-art__grid .tile {
+  position: absolute; border-radius: 12px; background: rgba(255,255,255,.10);
 }
