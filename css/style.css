@@ -1123,3 +1123,8 @@ li.open .ind-body { opacity: 1; }
   height: auto; overflow: visible; z-index: 1; pointer-events: none;
 }
 .footer__graphic img { display: block; width: 100%; height: auto; }
+
+/* Fix: декоративный .tex::before убегал из блока .kcase__result (position:static),
+   растягивался на весь экран и перекрывал клики по кнопкам (hero, фильтр). */
+.kcase__result { position: relative; }
+.tex::before { pointer-events: none; }
