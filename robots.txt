@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kaimakanovtimur97-crypto-baza-site-v3-3b82.twc1.net/sitemap.xml
