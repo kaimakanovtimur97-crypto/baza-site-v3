@@ -54,101 +54,76 @@
 
 <main>
   <!-- ===== HERO ===== -->
-  <section class="page-hero container">
-    <div class="page-hero__content">
-      <h1 class="h-xl">Услуги</h1>
-      <p class="hero__sub">Разрабатываем бизнес-процессы, инструкции, регламенты, KPI и базу знаний, чтобы сотрудники понимали, что делать, за что отвечать и как работать без постоянных вопросов руководителю.</p>
-      <a href="kontakty.html#zayavka" class="btn btn--primary">Получить аудит <span class="btn__icon btn__icon--b">Б</span></a>
-    </div>
-    <div class="hero__art blob-art">
-      <div class="blob-art__blob"></div>
-      <div class="blob-art__grid"></div>
-      <span class="blob-pill" style="left:325px; top:153px; --pd:0s">Процессы</span>
-      <span class="blob-pill" style="left:174px; top:239px; --pd:1.4s">Инструкции</span>
-      <span class="blob-pill" style="left:299px; top:344px; --pd:2.6s">KPI и ответственность</span>
-      <svg class="blob-art__plus blob-art__plus--1"><use href="#ic-plus3"/></svg>
-      <svg class="blob-art__plus blob-art__plus--2"><use href="#ic-plus3"/></svg>
-      <svg class="blob-art__plus blob-art__plus--3 vertical"><use href="#ic-plus3"/></svg>
-      <svg class="blob-art__plus blob-art__plus--4 vertical"><use href="#ic-plus3"/></svg>
+  <section class="container">
+    <div class="uhero">
+      <div class="uhero__body">
+        <nav class="crumbs"><a href="index.html">Главная</a> / <a href="uslugi.html">Услуги</a> /</nav>
+        <h1 class="h-xl">Услуги</h1>
+        <p class="uhero__sub">Разрабатываем бизнес-процессы, инструкции, регламенты, KPI и базу знаний, чтобы сотрудники понимали, что делать, за что отвечать и как работать без постоянных вопросов руководителю.</p>
+        <a href="kontakty.html#zayavka" class="btn btn--primary">Получить аудит <span class="btn__icon btn__icon--b">Б</span></a>
+      </div>
+      <div class="uhero__art"><img src="assets/hero-art.png" alt="БАЗА"></div>
     </div>
   </section>
 
   <!-- ===== ТО, ЧТО МЫ УМЕЕМ ===== -->
-  <section class="services-list container" id="services">
-    <h2 class="h-xl svc-title">То, что мы умеем</h2>
-    <div class="svc-grid">
-      <article class="svc-card">
-        <h3>Обучение сотрудников выполнению задач с ИИ</h3>
-        <p>Проводим индивидуальное обучение сотрудников по оптимизации их рабочих задач с помощью искусственного интеллекта. В ходе программы анализируются реальные функции/задачи должности, выделяются рутинные и трудоёмкие процессы, после чего подбираются подходящие ИИ-сервисы, создаются инструкции и агенты, способные автоматизировать часть задач.</p>
-        <div class="svc-card__actions">
-          <a href="uslugi-ii.html" class="btn btn--outline btn--sm">Подробнее <svg class="btn__icon-svg"><use href="#ic-circle-arrow"/></svg></a>
-          <a href="kontakty.html#zayavka" class="btn btn--primary btn--sm">Заказать <span class="btn__icon btn__icon--b">Б</span></a>
+  <section class="container umeem" id="services">
+    <h2 class="h-xl umeem__title">То, что мы умеем</h2>
+    <div class="umeem__list">
+      <div class="acc-item">
+        <button type="button" class="acc-head"><span class="acc-q">Обучение сотрудников выполнению задач с ИИ</span><svg class="acc-icon"><use href="#ic-plus"/></svg></button>
+        <div class="acc-body"><p>Проводим индивидуальное обучение сотрудников по оптимизации их рабочих задач с помощью искусственного интеллекта. Анализируем реальные функции должности, выделяем рутинные процессы и подбираем ИИ-сервисы, создаём инструкции и агентов, которые автоматизируют часть работы.</p><a href="uslugi-ii.html" class="btn btn--outline btn--sm">Подробнее <svg class="btn__icon-svg"><use href="#ic-circle-arrow"/></svg></a></div>
+      </div>
+      <div class="acc-item">
+        <button type="button" class="acc-head"><span class="acc-q">Бизнес-процессы компании</span><svg class="acc-icon"><use href="#ic-plus"/></svg></button>
+        <div class="acc-body"><p>Создаём понятный бизнес-процесс компании по схеме «этап — ответственный — действие — результат». Вникаем в детали вашей компании, анализируем действующие процессы и наглядно закрепляем зоны ответственности и результат каждого этапа.</p><a href="uslugi-processy.html" class="btn btn--outline btn--sm">Подробнее <svg class="btn__icon-svg"><use href="#ic-circle-arrow"/></svg></a></div>
+      </div>
+      <div class="acc-item">
+        <button type="button" class="acc-head"><span class="acc-q">Моделирование бизнес процессов</span><svg class="acc-icon"><use href="#ic-plus"/></svg></button>
+        <div class="acc-body"><p>Разрабатываем подробный бизнес-процесс нужного этапа: расписываем шаги, учитываем возможные исходы, на каждом шаге фиксируем ответственных, действия и требуемый результат. У сотрудников не остаётся вариантов не достичь цели.</p><a href="uslugi-modelirovanie.html" class="btn btn--outline btn--sm">Подробнее <svg class="btn__icon-svg"><use href="#ic-circle-arrow"/></svg></a></div>
+      </div>
+      <div class="acc-item">
+        <button type="button" class="acc-head"><span class="acc-q">Система мотивации по KPI</span><svg class="acc-icon"><use href="#ic-plus"/></svg></button>
+        <div class="acc-body"><p>Прозрачная система, где доход сотрудника связан с результатом: ключевые показатели по должностям, привязка премии к целям и понятные правила расчёта. Сотрудники видят связь между усилиями и доходом.</p><a href="uslugi-kpi.html" class="btn btn--outline btn--sm">Подробнее <svg class="btn__icon-svg"><use href="#ic-circle-arrow"/></svg></a></div>
+      </div>
+      <div class="acc-item">
+        <button type="button" class="acc-head"><span class="acc-q">Создание базы знаний организации</span><svg class="acc-icon"><use href="#ic-plus"/></svg></button>
+        <div class="acc-body"><p>Единая цифровая система хранения и структурирования информации компании по отделам, должностям и процессам. Все регламенты, инструкции, шаблоны и чек-листы в одном месте — доступные, понятные и актуальные.</p><a href="uslugi-baza-znaniy.html" class="btn btn--outline btn--sm">Подробнее <svg class="btn__icon-svg"><use href="#ic-circle-arrow"/></svg></a></div>
+      </div>
+      <div class="acc-item">
+        <button type="button" class="acc-head"><span class="acc-q">«Под увольнение»</span><svg class="acc-icon"><use href="#ic-plus"/></svg></button>
+        <div class="acc-body"><p>Сохраняем знания, опыт и процессы при уходе ключевого сотрудника. За короткий срок фиксируем весь функционал должности, описываем ключевые процессы и передаём знания компании — без стресса и потери информации.</p><a href="uslugi-uvolnenie.html" class="btn btn--outline btn--sm">Подробнее <svg class="btn__icon-svg"><use href="#ic-circle-arrow"/></svg></a></div>
+      </div>
+      <div class="acc-item">
+        <button type="button" class="acc-head"><span class="acc-q">Структуризация бизнеса</span><svg class="acc-icon"><use href="#ic-plus"/></svg></button>
+        <div class="acc-body"><p>Комплексный проект по выстраиванию системы управления компанией: от формирования фундамента до внедрения рабочих процессов. Работаем поэтапно, с учётом состояния компании, её целей и приоритетных проблемных зон.</p><a href="uslugi-strukturizaciya.html" class="btn btn--outline btn--sm">Подробнее <svg class="btn__icon-svg"><use href="#ic-circle-arrow"/></svg></a></div>
+      </div>
+      <div class="acc-item">
+        <button type="button" class="acc-head"><span class="acc-q">Консультация</span><svg class="acc-icon"><use href="#ic-plus"/></svg></button>
+        <div class="acc-body"><p>Консультируем по вопросам управления, персонала, делегирования, роста и процессов. Вникаем в детали компании, анализируем действующие процессы и по итогу даём конкретные рекомендации и варианты решения.</p><a href="uslugi-konsultaciya.html" class="btn btn--outline btn--sm">Подробнее <svg class="btn__icon-svg"><use href="#ic-circle-arrow"/></svg></a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ФОРМА ===== -->
+  <section class="lead-row container" id="form">
+    <div class="lead-row__box">
+      <div class="lead-row__text">
+        <h2>Обсудим Вашу задачу</h2>
+        <p>Разберём вашу текущую ситуацию, ответим на вопросы и покажем возможные решения для вашего бизнеса.</p>
+      </div>
+      <form class="lead-row__form lead-form" novalidate>
+        <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off">
+        <input type="hidden" name="page" value="Услуги">
+        <div class="field"><input type="text" name="name" placeholder="Имя" required></div>
+        <div class="field">
+          <svg class="lead__flag"><use href="#ic-flag-ru"/></svg>
+          <input type="tel" name="phone" placeholder="+7 (000) 000–00–00" required>
         </div>
-      </article>
-      <article class="svc-card">
-        <h3>Разработка регламентов и инструкций</h3>
-        <p>Разработка регламентов и инструкций обеспечивает единый стандарт выполнения задач сотрудниками и снижает зависимость процессов от конкретных людей. Мы фиксируем порядок действий, зоны ответственности и требования к результату в понятных рабочих документах, пригодных для ежедневного использования.</p>
-        <div class="svc-card__actions">
-          <a href="uslugi-reglamenty.html" class="btn btn--outline btn--sm">Подробнее <svg class="btn__icon-svg"><use href="#ic-circle-arrow"/></svg></a>
-          <a href="kontakty.html#zayavka" class="btn btn--primary btn--sm">Заказать <span class="btn__icon btn__icon--b">Б</span></a>
-        </div>
-      </article>
-      <article class="svc-card">
-        <h3>Бизнес процессы компании</h3>
-        <p>Создаём понятный бизнес-процесс компании, отображая в нем «название этапа — ответственных — действие — результат». Вникаю в детали и тонкости вашей компании, анализирую все действующие процессы для оптимизации и структуризации. С помощью описанного бизнес-процесса наглядно отображаются зоны ответственности и результат каждого этапа.</p>
-        <div class="svc-card__actions">
-          <a href="uslugi-modelirovanie.html" class="btn btn--outline btn--sm">Подробнее <svg class="btn__icon-svg"><use href="#ic-circle-arrow"/></svg></a>
-          <a href="kontakty.html#zayavka" class="btn btn--primary btn--sm">Заказать <span class="btn__icon btn__icon--b">Б</span></a>
-        </div>
-      </article>
-      <article class="svc-card">
-        <h3>Моделирование бизнес процессов</h3>
-        <p>Разрабатываем подробный бизнес-процесс необходимого этапа компании, расписывая подробные шаги и учитывая возможные исходы, отображая на каждом шаге ответственных, действия которые нужно совершить и результат, которого необходимо достичь. Благодаря этому у сотрудников компании нет вариантов не достичь результата.</p>
-        <div class="svc-card__actions">
-          <a href="uslugi-modelirovanie.html" class="btn btn--outline btn--sm">Подробнее <svg class="btn__icon-svg"><use href="#ic-circle-arrow"/></svg></a>
-          <a href="kontakty.html#zayavka" class="btn btn--primary btn--sm">Заказать <span class="btn__icon btn__icon--b">Б</span></a>
-        </div>
-      </article>
-      <article class="svc-card">
-        <h3>Система мотивации по KPI</h3>
-        <p>Прозрачная система, где доход сотрудника связан с результатом: ключевые показатели по должностям, привязка премии и понятные правила расчёта.</p>
-        <div class="svc-card__actions">
-          <a href="kontakty.html" class="btn btn--outline btn--sm">Подробнее <svg class="btn__icon-svg"><use href="#ic-circle-arrow"/></svg></a>
-          <a href="kontakty.html#zayavka" class="btn btn--primary btn--sm">Заказать <span class="btn__icon btn__icon--b">Б</span></a>
-        </div>
-      </article>
-      <article class="svc-card">
-        <h3>Создание базы знаний организации</h3>
-        <p>Создаём единую цифровую систему хранения и структурирования всей информации компании по отделам, должностям, направлениям и процессам. База знаний объединяет все документы, регламенты, инструкции, шаблоны и чек-листы в одном месте, делая их доступными, понятными и актуальными.</p>
-        <div class="svc-card__actions">
-          <a href="kontakty.html" class="btn btn--outline btn--sm">Подробнее <svg class="btn__icon-svg"><use href="#ic-circle-arrow"/></svg></a>
-          <a href="kontakty.html#zayavka" class="btn btn--primary btn--sm">Заказать <span class="btn__icon btn__icon--b">Б</span></a>
-        </div>
-      </article>
-      <article class="svc-card">
-        <h3>Структуризация бизнеса</h3>
-        <p>Комплексный проект, направленный на создание и выстраивание системы управления компанией. Пакет включает в себя набор инструментов, необходимых для формирования фундамента бизнеса, его дальнейшей структуризации и внедрения рабочих процессов. Работа проводится поэтапно, с учётом текущего состояния компании, её целей, масштабов и приоритетных проблемных зон.</p>
-        <div class="svc-card__actions">
-          <a href="kontakty.html" class="btn btn--outline btn--sm">Подробнее <svg class="btn__icon-svg"><use href="#ic-circle-arrow"/></svg></a>
-          <a href="kontakty.html#zayavka" class="btn btn--primary btn--sm">Заказать <span class="btn__icon btn__icon--b">Б</span></a>
-        </div>
-      </article>
-      <article class="svc-card">
-        <h3>«Под увольнение»</h3>
-        <p>Комплексная услуга, направленная на сохранение знаний, опыта и процессов при уходе ключевого сотрудника. Пакет позволяет за короткий срок зафиксировать весь функционал должности, описать ключевые процессы и передать накопленные знания компании. Цель — снизить стресс руководства, минимизировать потери информации и обеспечить плавную адаптацию нового специалиста.</p>
-        <div class="svc-card__actions">
-          <a href="kontakty.html" class="btn btn--outline btn--sm">Подробнее <svg class="btn__icon-svg"><use href="#ic-circle-arrow"/></svg></a>
-          <a href="kontakty.html#zayavka" class="btn btn--primary btn--sm">Заказать <span class="btn__icon btn__icon--b">Б</span></a>
-        </div>
-      </article>
-      <article class="svc-card">
-        <h3>Консультация</h3>
-        <p>Проводим консультацию по всем вопросам связанных с персоналом, работой с человеческими ресурсами, выполнение планов, рост, делегирование, нововведения и процессами. Вникаю в детали и тонкости Вашей компании, анализирую все действующие процессы для оптимизации и структуризации. По итогу консультации отвечаю на все вопросы и рассказываю о вариантах решения.</p>
-        <div class="svc-card__actions">
-          <a href="kontakty.html" class="btn btn--outline btn--sm">Подробнее <svg class="btn__icon-svg"><use href="#ic-circle-arrow"/></svg></a>
-          <a href="kontakty.html#zayavka" class="btn btn--primary btn--sm">Заказать <span class="btn__icon btn__icon--b">Б</span></a>
-        </div>
-      </article>
+        <div class="field"><input type="text" name="problem" placeholder="Кратко ситуация компании" required></div>
+        <button type="submit" class="btn btn--primary">Получить аудит</button>
+        <p class="lead-row__note">Нажимая кнопку, вы соглашаетесь на обработку персональных данных. Никакого спама.</p>
+      </form>
     </div>
   </section>
 </main>
