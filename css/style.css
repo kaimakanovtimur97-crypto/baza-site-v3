@@ -9,7 +9,7 @@
   --radius: 24px;
   --container: 1328px;
   --font: 'Gilroy', 'Manrope', 'Segoe UI', system-ui, sans-serif;
-  --font-logo: 'Nasalization Rg', 'Nasalization', 'Gilroy', sans-serif;
+  --font-logo: 'Nasalization Rg', 'Nasalization', 'Gilroy', 'Manrope', sans-serif;
 }
 
 /* Фирменный шрифт Gilroy: положите файлы в assets/fonts/ — подхватятся автоматически.
@@ -1041,7 +1041,7 @@ li.open .ind-body { opacity: 1; }
 
 /* Оффер «Получите разбор» — левая карточка на r69.jpg, правая — сплошной accent */
 .offer__grid .offer-card:first-child {
-  background: #2E63F0 url('assets/r69.jpg') center/cover no-repeat;
+  background: #2E63F0 url('../assets/r69.jpg') center/cover no-repeat;
 }
 .offer__grid .offer-card:last-child {
   background: var(--accent);
