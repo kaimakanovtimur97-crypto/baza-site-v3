@@ -469,10 +469,10 @@ button { font: inherit; border: 0; background: none; cursor: pointer; color: inh
   .hero { flex-direction: column; }
   .hero__art { width: 100%; max-width: 651px; margin: 40px auto 0; }
   .stats { grid-template-columns: 1fr 1fr; }
-  .industries__box { padding: 32px; min-height: 0; }
+  .industries__box { padding: 32px; min-height: 0; flex-direction: column; align-items: stretch; }
   .industries__title { margin: 0; text-align: left; }
   .industries__art { display: none; }
-  .industries__list { position: static; width: 100%; margin-top: 32px; }
+  .industries__list { position: static; width: 100%; margin-top: 32px; margin-right: 0; }
   .steps { flex-direction: column; }
   .steps__left { padding-top: 0; }
   .steps__list { width: 100%; }
