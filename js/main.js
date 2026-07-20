@@ -255,3 +255,21 @@ document.querySelectorAll('.blob-art').forEach(art => {
     }
   });
 })();
+
+// ---------- Hero-арт: масштаб 1:1 под ширину контейнера ----------
+(function () {
+  const art = document.querySelector('.hero__art');
+  if (!art) return;
+  const W = 651, H = 492;
+  const inner = document.createElement('div');
+  inner.className = 'hero__art-inner';
+  while (art.firstChild) inner.appendChild(art.firstChild);
+  art.appendChild(inner);
+  function fit() {
+    const s = Math.min(1, (art.clientWidth || W) / W);
+    inner.style.transform = 'translateX(-50%) scale(' + s + ')';
+    art.style.height = Math.round(H * s) + 'px';
+  }
+  window.addEventListener('resize', fit);
+  fit();
+})();
