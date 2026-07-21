@@ -273,3 +273,15 @@ document.querySelectorAll('.blob-art').forEach(art => {
   window.addEventListener('resize', fit);
   fit();
 })();
+
+// ---------- Карточки услуг на главной: раскрытие списка ----------
+document.querySelectorAll('.service-card').forEach(card => {
+  const btn = card.querySelector('.service-card__more');
+  const list = card.querySelector('.service-card__list');
+  if (!btn || !list) return;
+  btn.addEventListener('click', () => {
+    const open = card.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+    list.style.maxHeight = open ? list.scrollHeight + 'px' : 0;
+  });
+});
