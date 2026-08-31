@@ -419,6 +419,13 @@ body.ai-landing {
   max-width: 900px;
 }
 
+.ai-landing .ai-hero__seo-title {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.12em;
+}
+
 .ai-hero__title {
   max-width: 900px;
   font-size: clamp(50px, 6.2vw, 88px);
@@ -439,6 +446,26 @@ body.ai-landing {
   align-items: center;
   gap: 12px;
   margin-top: 34px;
+}
+
+.ai-hero__trust {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 0;
+  margin-top: 18px;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.ai-hero__trust span + span {
+  margin-left: 12px;
+  padding-left: 12px;
+  border-left: 1px solid rgba(255, 255, 255, 0.24);
 }
 
 .ai-hero__prices {
@@ -1453,6 +1480,41 @@ body.ai-landing {
   text-align: center;
 }
 
+.ai-pricing__included {
+  margin-top: 16px;
+}
+
+.ai-pricing__included-list {
+  display: grid;
+  gap: 14px 22px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ai-pricing__included-list li {
+  position: relative;
+  padding-left: 28px;
+  font-size: clamp(16px, 1.6vw, 20px);
+  line-height: 1.35;
+}
+
+.ai-pricing__included-list li::before {
+  position: absolute;
+  top: 0.12em;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  display: grid;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 50%;
+  color: #fff;
+  content: "✓";
+  font-size: 12px;
+  place-items: center;
+}
+
 /* Steps */
 .ai-steps {
   padding-top: 0;
@@ -2142,6 +2204,18 @@ body.ai-landing {
     min-height: 56px;
   }
 
+  .ai-hero__trust {
+    display: grid;
+    gap: 7px;
+    margin-top: 18px;
+  }
+
+  .ai-hero__trust span + span {
+    margin-left: 0;
+    padding-left: 0;
+    border-left: 0;
+  }
+
   .ai-hero__prices {
     grid-template-columns: 1fr;
   }
@@ -2274,6 +2348,10 @@ body.ai-landing {
     width: 100%;
   }
 
+  .ai-pricing__included-list {
+    grid-template-columns: 1fr;
+  }
+
   .ai-steps__list li {
     gap: 18px;
     grid-template-columns: 50px 1fr;
@@ -2355,7 +2433,7 @@ body.ai-landing {
   }
 
   .ai-hero__title {
-    font-size: 42px;
+    font-size: 38px;
   }
 
   .ai-contact-link strong {

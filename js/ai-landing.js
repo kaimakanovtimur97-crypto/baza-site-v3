@@ -135,10 +135,21 @@
   const mobileAction = document.querySelector('.ai-mobile-action');
   const contact = document.querySelector('#contact');
   if (mobileAction && contact && 'IntersectionObserver' in window) {
-    const contactObserver = new IntersectionObserver((entries) => {
-      mobileAction.classList.toggle('is-hidden', entries.some((entry) => entry.isIntersecting));
+    let actionHeroInView = Boolean(hero);
+    let contactInView = false;
+    const syncMobileAction = () => {
+      mobileAction.classList.toggle('is-hidden', actionHeroInView || contactInView);
+    };
+    const actionObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.target === hero) actionHeroInView = entry.isIntersecting;
+        if (entry.target === contact) contactInView = entry.isIntersecting;
+      });
+      syncMobileAction();
     }, { threshold: 0.12 });
-    contactObserver.observe(contact);
+    syncMobileAction();
+    if (hero) actionObserver.observe(hero);
+    actionObserver.observe(contact);
   }
 
   document.addEventListener('click', (event) => {
