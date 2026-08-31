@@ -129,43 +129,6 @@ if (burger) {
   nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
 }
 
-// ---------- Маска телефона ----------
-document.querySelectorAll('input[type="tel"]').forEach(phone => {
-  phone.addEventListener('input', () => {
-    let d = phone.value.replace(/\D/g, '');
-    if (d.startsWith('8')) d = '7' + d.slice(1);
-    if (!d.startsWith('7')) d = '7' + d;
-    d = d.slice(0, 11);
-    let out = '+7';
-    if (d.length > 1) out += ' (' + d.slice(1, 4);
-    if (d.length >= 4) out += ') ' + d.slice(4, 7);
-    if (d.length >= 7) out += '-' + d.slice(7, 9);
-    if (d.length >= 9) out += '-' + d.slice(9, 11);
-    phone.value = out;
-  });
-});
-
-// ---------- Отправка форм (send.php на хостинге) ----------
-document.querySelectorAll('form.lead-form').forEach(form => {
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    if (!form.checkValidity()) { form.reportValidity(); return; }
-    const btn = form.querySelector('[type="submit"]');
-    const original = btn.textContent;
-    btn.textContent = 'Отправляем…';
-    btn.disabled = true;
-    try {
-      const res = await fetch('send.php', { method: 'POST', body: new FormData(form) });
-      const ok = res.ok;
-      btn.textContent = ok ? 'Заявка отправлена ✓' : 'Ошибка отправки';
-      if (ok) form.reset();
-    } catch (err) {
-      btn.textContent = 'Ошибка сети';
-    }
-    setTimeout(() => { btn.textContent = original; btn.disabled = false; }, 4000);
-  });
-});
-
 // ---------- Подсветка активного пункта меню ----------
 (function () {
   const page = location.pathname.split('/').pop() || 'index.html';
