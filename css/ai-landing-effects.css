@@ -23,6 +23,7 @@ a:hover{color:var(--acc)}
 @media (max-width:760px){
 body{--rv:14px;--rt:520ms}
 [data-reveal]{--rd:0ms !important}
+[data-mobile-static-reveal] [data-reveal]{--r:1 !important;opacity:1 !important;transform:none !important;transition:none !important}
 [data-sticky-col]{position:static !important;top:auto !important}
 }
 @media (prefers-reduced-motion: reduce){*{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}html{scroll-behavior:auto}}
