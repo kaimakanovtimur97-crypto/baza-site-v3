@@ -20,4 +20,13 @@ a:hover{color:var(--acc)}
 @keyframes bazaCue{0%{transform:translateY(0);opacity:0}25%{opacity:1}100%{transform:translateY(16px);opacity:0}}
 @keyframes bazaSheen{0%{transform:translateX(-120%)}60%,100%{transform:translateX(220%)}}
 @keyframes bazaOrbit{to{transform:rotate(360deg)}}
+@media (max-width:760px){
+body{--rv:14px;--rt:520ms}
+[data-reveal]{--rd:0ms !important}
+[data-sticky-col]{position:static !important;top:auto !important}
+}
 @media (prefers-reduced-motion: reduce){*{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}html{scroll-behavior:auto}}
+dialog[data-modal]{border:0;padding:0;background:transparent;color:inherit;width:min(100%,560px);max-width:100%;max-height:88dvh;overflow:visible}
+dialog[data-modal]::backdrop{background:rgba(4,6,15,.76);-webkit-backdrop-filter:blur(7px);backdrop-filter:blur(7px)}
+[data-cases-track]{scrollbar-width:none;-ms-overflow-style:none}
+[data-cases-track]::-webkit-scrollbar{display:none}
