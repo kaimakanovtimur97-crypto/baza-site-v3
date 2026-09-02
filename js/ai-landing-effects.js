@@ -92,8 +92,6 @@
 
   const setFixedTokens = () => {
     body.style.setProperty('--acc', '#336fff');
-    body.style.setProperty('--rv', '26px');
-    body.style.setProperty('--rt', '780ms');
     body.style.setProperty('--mq', '34s');
   };
 
@@ -455,6 +453,138 @@
     }
   });
 
+  const mobileSliderViewport = window.matchMedia('(max-width: 760px)');
+  const mobileSliders = Array.from(doc.querySelectorAll('[data-mobile-slider]'));
+
+  mobileSliders.forEach((region) => {
+    const track = region.querySelector('[data-mobile-slider-track]');
+    const controls = region.querySelector('[data-mobile-slider-controls]');
+    const previousButton = region.querySelector('[data-mobile-slider-prev]');
+    const nextButton = region.querySelector('[data-mobile-slider-next]');
+    const currentElement = region.querySelector('[data-mobile-slider-current]');
+    const totalElement = region.querySelector('[data-mobile-slider-total]');
+    const slides = track ? Array.from(track.children) : [];
+
+    if (!track || !controls || !previousButton || !nextButton || !slides.length) return;
+
+    const originalSlideAttributes = slides.map((slide) => ({
+      role: slide.getAttribute('role'),
+      roledescription: slide.getAttribute('aria-roledescription'),
+      label: slide.getAttribute('aria-label'),
+    }));
+    let currentIndex = 0;
+    let scrollFrame = 0;
+
+    const slideLeft = (slide) => slide.offsetLeft - slides[0].offsetLeft;
+
+    const nearestSlideIndex = () => {
+      let nearestIndex = 0;
+      let nearestDistance = Number.POSITIVE_INFINITY;
+
+      slides.forEach((slide, index) => {
+        const distance = Math.abs(slideLeft(slide) - track.scrollLeft);
+        if (distance < nearestDistance) {
+          nearestDistance = distance;
+          nearestIndex = index;
+        }
+      });
+
+      return nearestIndex;
+    };
+
+    const paintSlider = () => {
+      if (currentElement) currentElement.textContent = String(currentIndex + 1);
+      if (totalElement) totalElement.textContent = String(slides.length);
+      previousButton.disabled = currentIndex <= 0;
+      nextButton.disabled = currentIndex >= slides.length - 1;
+    };
+
+    const goToSlide = (nextIndex, shouldScroll = true) => {
+      if (!mobileSliderViewport.matches) return;
+
+      currentIndex = Math.max(0, Math.min(slides.length - 1, nextIndex));
+      const slide = slides[currentIndex];
+
+      if (slide && shouldScroll) {
+        track.scrollTo({
+          left: slideLeft(slide),
+          behavior: reduceMotion.matches ? 'auto' : 'smooth',
+        });
+      }
+
+      paintSlider();
+    };
+
+    const restoreAttribute = (element, name, value) => {
+      if (value === null) element.removeAttribute(name);
+      else element.setAttribute(name, value);
+    };
+
+    const syncMobileSlider = () => {
+      const isMobile = mobileSliderViewport.matches;
+      region.toggleAttribute('data-mobile-slider-active', isMobile);
+      track.style.scrollBehavior = isMobile && !reduceMotion.matches ? 'smooth' : 'auto';
+
+      if (isMobile) {
+        region.setAttribute('aria-roledescription', 'карусель');
+        region.tabIndex = 0;
+        slides.forEach((slide, index) => {
+          slide.dataset.mobileSlide = '';
+          slide.setAttribute('role', 'group');
+          slide.setAttribute('aria-roledescription', 'слайд');
+          slide.setAttribute('aria-label', `${index + 1} из ${slides.length}`);
+        });
+        currentIndex = nearestSlideIndex();
+        paintSlider();
+        return;
+      }
+
+      region.removeAttribute('aria-roledescription');
+      region.removeAttribute('tabindex');
+      slides.forEach((slide, index) => {
+        delete slide.dataset.mobileSlide;
+        restoreAttribute(slide, 'role', originalSlideAttributes[index].role);
+        restoreAttribute(slide, 'aria-roledescription', originalSlideAttributes[index].roledescription);
+        restoreAttribute(slide, 'aria-label', originalSlideAttributes[index].label);
+      });
+      track.scrollLeft = 0;
+      track.style.scrollBehavior = '';
+      currentIndex = 0;
+      paintSlider();
+    };
+
+    on(previousButton, 'click', () => goToSlide(currentIndex - 1));
+    on(nextButton, 'click', () => goToSlide(currentIndex + 1));
+    on(region, 'keydown', (event) => {
+      if (!mobileSliderViewport.matches || event.target !== region) return;
+      if (event.key === 'ArrowRight') {
+        event.preventDefault();
+        goToSlide(currentIndex + 1);
+      }
+      if (event.key === 'ArrowLeft') {
+        event.preventDefault();
+        goToSlide(currentIndex - 1);
+      }
+    });
+    on(track, 'scroll', () => {
+      if (!mobileSliderViewport.matches || scrollFrame) return;
+
+      scrollFrame = window.requestAnimationFrame(() => {
+        scrollFrame = 0;
+        const nearestIndex = nearestSlideIndex();
+        if (nearestIndex === currentIndex) return;
+        currentIndex = nearestIndex;
+        paintSlider();
+      });
+    }, { passive: true });
+    on(window, 'resize', () => {
+      if (mobileSliderViewport.matches) goToSlide(currentIndex);
+    }, { passive: true });
+    onMediaChange(mobileSliderViewport, syncMobileSlider);
+    onMediaChange(reduceMotion, syncMobileSlider);
+    syncMobileSlider();
+  });
+
   const casesTrack = doc.querySelector('[data-cases-track]');
   const casesRegion = doc.querySelector('[data-cases-region]');
 
@@ -470,6 +600,8 @@
     let currentIndex = 0;
     let dots = [];
     let carouselFrame = 0;
+    let restoreMotionFrame = 0;
+    let filterResetting = false;
 
     allSlides.forEach((slide, index) => {
       if (!slide.id) slide.id = `baza-case-slide-${index + 1}`;
@@ -479,6 +611,27 @@
 
     const syncCarouselMotion = () => {
       casesTrack.style.scrollBehavior = reduceMotion.matches ? 'auto' : 'smooth';
+    };
+
+    const caseSlideLeft = (slide) => {
+      const firstSlide = visibleSlides[0];
+      return firstSlide ? slide.offsetLeft - firstSlide.offsetLeft : 0;
+    };
+
+    const nearestCaseIndex = () => {
+      const scrollPosition = casesTrack.scrollLeft;
+      let nearestIndex = 0;
+      let nearestDistance = Number.POSITIVE_INFINITY;
+
+      visibleSlides.forEach((slide, index) => {
+        const distance = Math.abs(caseSlideLeft(slide) - scrollPosition);
+        if (distance < nearestDistance) {
+          nearestDistance = distance;
+          nearestIndex = index;
+        }
+      });
+
+      return nearestIndex;
     };
 
     const paintDots = () => {
@@ -494,15 +647,15 @@
     };
 
     const paintCarousel = () => {
-      if (currentElement) currentElement.textContent = String(currentIndex + 1);
+      if (currentElement) currentElement.textContent = String(visibleSlides.length ? currentIndex + 1 : 0);
       if (totalElement) totalElement.textContent = String(visibleSlides.length);
 
       if (previousButton) {
-        previousButton.disabled = currentIndex <= 0;
+        previousButton.disabled = !visibleSlides.length || currentIndex <= 0;
         previousButton.style.opacity = previousButton.disabled ? '.35' : '1';
       }
       if (nextButton) {
-        nextButton.disabled = currentIndex >= visibleSlides.length - 1;
+        nextButton.disabled = !visibleSlides.length || currentIndex >= visibleSlides.length - 1;
         nextButton.style.opacity = nextButton.disabled ? '.35' : '1';
       }
 
@@ -521,7 +674,7 @@
 
       if (slide && shouldScroll) {
         casesTrack.scrollTo({
-          left: slide.offsetLeft - casesTrack.offsetLeft,
+          left: caseSlideLeft(slide),
           behavior: reduceMotion.matches ? 'auto' : 'smooth',
         });
       }
@@ -533,17 +686,21 @@
       if (!dotsContainer) return;
 
       dotsContainer.textContent = '';
+      dots = [];
+      dotsContainer.hidden = visibleSlides.length > 8;
+      if (dotsContainer.hidden) return;
+
       dots = visibleSlides.map((slide, index) => {
         const button = doc.createElement('button');
         const marker = doc.createElement('span');
         button.type = 'button';
-        button.setAttribute('aria-label', `Показать кейс ${index + 1} из ${visibleSlides.length}`);
+        button.dataset.caseDot = String(index);
+        button.setAttribute('aria-label', `Показать слайд ${index + 1} из ${visibleSlides.length}`);
         button.setAttribute('aria-controls', slide.id);
         button.style.cssText = 'display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:999px;cursor:pointer';
         marker.setAttribute('aria-hidden', 'true');
         marker.style.cssText = 'display:block;width:10px;height:10px;border-radius:999px;background:rgba(25,25,25,.24);transition:width .35s var(--ease),background .3s';
         button.append(marker);
-        on(button, 'click', () => goToCase(index));
         dotsContainer.append(button);
         return button;
       });
@@ -552,14 +709,29 @@
     };
 
     const applyFilter = (filterValue) => {
+      const nextVisibleSlides = allSlides.filter((slide) => (
+        filterValue === 'all' || slide.dataset.niche === filterValue
+      ));
+
+      if (!nextVisibleSlides.length) return;
+      if (carouselFrame) {
+        window.cancelAnimationFrame(carouselFrame);
+        carouselFrame = 0;
+      }
+      if (restoreMotionFrame) window.cancelAnimationFrame(restoreMotionFrame);
+      filterResetting = true;
+      casesTrack.style.scrollBehavior = 'auto';
+      casesTrack.style.overflowAnchor = 'none';
+
       allSlides.forEach((slide) => {
-        const shouldShow = filterValue === 'all' || slide.dataset.niche === filterValue;
+        const shouldShow = nextVisibleSlides.includes(slide);
         slide.hidden = !shouldShow;
         slide.setAttribute('aria-hidden', String(!shouldShow));
       });
 
-      visibleSlides = allSlides.filter((slide) => !slide.hidden);
+      visibleSlides = nextVisibleSlides;
       currentIndex = 0;
+      casesTrack.scrollLeft = 0;
 
       visibleSlides.forEach((slide, index) => {
         const position = slide.querySelector('[data-case-position]');
@@ -572,19 +744,32 @@
       filters.forEach((filter) => {
         const isActive = filter.dataset.caseFilter === filterValue;
         filter.setAttribute('aria-pressed', String(isActive));
-        filter.style.background = isActive ? 'var(--night2)' : 'transparent';
-        filter.style.color = isActive ? '#fff' : 'var(--ink)';
-        filter.style.borderColor = isActive ? 'transparent' : 'rgba(25,25,25,.18)';
       });
 
       buildDots();
-      casesTrack.scrollTo({ left: 0, behavior: 'auto' });
       paintCarousel();
+      restoreMotionFrame = window.requestAnimationFrame(() => {
+        restoreMotionFrame = 0;
+        casesTrack.scrollLeft = 0;
+        currentIndex = 0;
+        paintCarousel();
+        casesTrack.style.overflowAnchor = '';
+        filterResetting = false;
+        syncCarouselMotion();
+      });
     };
 
     filters.forEach((filter) => {
       on(filter, 'click', () => applyFilter(filter.dataset.caseFilter));
     });
+    if (dotsContainer) {
+      on(dotsContainer, 'click', (event) => {
+        const button = event.target.closest && event.target.closest('[data-case-dot]');
+        if (!button || !dotsContainer.contains(button)) return;
+        const nextIndex = Number(button.dataset.caseDot);
+        if (Number.isInteger(nextIndex)) goToCase(nextIndex);
+      });
+    }
     if (previousButton) on(previousButton, 'click', () => goToCase(currentIndex - 1));
     if (nextButton) on(nextButton, 'click', () => goToCase(currentIndex + 1));
 
@@ -600,21 +785,11 @@
     });
 
     on(casesTrack, 'scroll', () => {
-      if (carouselFrame) return;
+      if (filterResetting || carouselFrame) return;
 
       carouselFrame = window.requestAnimationFrame(() => {
         carouselFrame = 0;
-        const scrollPosition = casesTrack.scrollLeft;
-        let nearestIndex = 0;
-        let nearestDistance = Number.POSITIVE_INFINITY;
-
-        visibleSlides.forEach((slide, index) => {
-          const distance = Math.abs(slide.offsetLeft - casesTrack.offsetLeft - scrollPosition);
-          if (distance < nearestDistance) {
-            nearestDistance = distance;
-            nearestIndex = index;
-          }
-        });
+        const nearestIndex = nearestCaseIndex();
 
         if (nearestIndex !== currentIndex) {
           currentIndex = nearestIndex;
@@ -659,29 +834,16 @@
       if (casesTrack.hasPointerCapture(event.pointerId)) casesTrack.releasePointerCapture(event.pointerId);
 
       if (dragDistance > 4) {
-        const scrollPosition = casesTrack.scrollLeft;
-        let nearestIndex = 0;
-        let nearestDistance = Number.POSITIVE_INFINITY;
-
-        visibleSlides.forEach((slide, index) => {
-          const distance = Math.abs(slide.offsetLeft - casesTrack.offsetLeft - scrollPosition);
-          if (distance < nearestDistance) {
-            nearestDistance = distance;
-            nearestIndex = index;
-          }
-        });
-
-        goToCase(nearestIndex);
+        goToCase(nearestCaseIndex());
       }
     };
 
     on(casesTrack, 'pointerup', finishDrag);
     on(casesTrack, 'pointercancel', finishDrag);
     on(window, 'resize', () => goToCase(currentIndex, true), { passive: true });
-    syncCarouselMotion();
     onMediaChange(reduceMotion, syncCarouselMotion);
-    buildDots();
-    paintCarousel();
+    const initialFilter = filters.find((filter) => filter.getAttribute('aria-pressed') === 'true');
+    applyFilter(initialFilter?.dataset.caseFilter || 'all');
   }
 
   const heroVideo = doc.querySelector('[data-hero-video]');
