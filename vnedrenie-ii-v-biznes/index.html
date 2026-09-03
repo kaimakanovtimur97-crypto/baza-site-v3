@@ -33,7 +33,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
 <link rel="preload" href="../img/ai-automation-hero.webp" as="image" type="image/webp" fetchpriority="high">
-<link rel="stylesheet" href="../css/ai-landing-effects.css?v=20260903-copy">
+<link rel="stylesheet" href="../css/ai-landing-effects.css?v=20260904-numbers">
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
@@ -184,11 +184,6 @@
 
   <div style="width:min(100%,1328px);margin-inline:auto;padding-inline:clamp(20px,4vw,56px);position:relative">
     <div style="max-width:min(100%,980px)">
-      <p data-reveal style="opacity:var(--r,1);transform:translateY(calc(var(--rv,26px) * (1 - var(--r,1))));transition:opacity var(--rt,780ms) var(--ease) var(--rd,0ms),transform var(--rt,780ms) var(--ease) var(--rd,0ms);display:inline-flex;align-items:center;gap:11px;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--accl);margin-bottom:clamp(20px,2.6vw,30px);padding:9px 16px 9px 13px;border:1px solid rgba(168,195,255,.26);border-radius:999px;background:rgba(51,111,255,.1)">
-        <span aria-hidden="true" style="width:7px;height:7px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 4px rgba(51,111,255,.22);animation:bazaPulse 2.6s ease-in-out infinite"></span>
-        Внедрение ИИ в бизнес
-      </p>
-
       <h1 id="hero-title" data-reveal style="--rd:70ms;opacity:var(--r,1);transform:translateY(calc(var(--rv,26px) * (1 - var(--r,1))));transition:opacity var(--rt,780ms) var(--ease) var(--rd,0ms),transform var(--rt,780ms) var(--ease) var(--rd,0ms);font-family:'Gilroy','Jost',sans-serif;font-weight:600;font-size:clamp(35px,5.9vw,86px);line-height:.96;letter-spacing:-.042em;color:#fff;text-wrap:balance;margin-bottom:clamp(18px,2.2vw,26px)">
         Внедрение <span style="color:var(--accl)">ИИ</span> в бизнес-процессы компании
       </h1>
@@ -772,12 +767,11 @@
           </div>
           <h3 class="case-card__title" data-case-title>Avito: из набора объявлений — в управляемый канал</h3>
           <div class="case-card__result">
-            <span class="case-card__label">Результат</span>
+            <span class="case-card__label">Что улучшили</span>
+            <p class="case-card__result-lead">Видно, какие объявления дают обращения, а какие — только показы. Бюджет перестаёт уходить в слабые. Часть правок ИИ вносит сам.</p>
             <div class="case-card__metrics">
               <div class="case-card__metric case-card__metric--text"><strong>Ежедневно</strong><span>канал проверяется по расписанию, а не при ручном входе в кабинет</span></div>
-              <div class="case-card__metric case-card__metric--text"><strong>Целевые и нецелевые</strong><span>обращения разделяются по переписке, а не по ощущениям</span></div>
             </div>
-            <p>Видно, какие объявления дают обращения, а какие — только показы. Бюджет перестаёт уходить в слабые. Часть правок ИИ вносит сам.</p>
           </div>
           <div class="case-card__grid">
             <div><span class="case-card__label">Было</span><p>Объявления вели вручную. Пока менеджер собирал показы, просмотры и контакты и перечитывал переписки, деньги уже уходили в слабые объявления.</p></div>
@@ -792,15 +786,14 @@
           </div>
           <h3 class="case-card__title" data-case-title>Закупки и остатки без ручной сверки</h3>
           <div class="case-card__result">
-            <span class="case-card__label">Результат</span>
+            <span class="case-card__label">Что улучшили</span>
+            <p class="case-card__result-lead">Раньше картину по остаткам собирали раз в месяц и пять дней на это тратили. Теперь она есть всегда: видно, что можно собирать, а что ждёт партию.</p>
             <div class="case-card__metrics">
-              <div class="case-card__metric case-card__metric--text"><strong>По каждой сделке</strong><span>наличие, закупка и срок прихода проверяются автоматически</span></div>
-              <div class="case-card__metric case-card__metric--text"><strong>Остатки из 1С</strong><span>решение по заказу опирается на факт, а не на память менеджера</span></div>
+              <div class="case-card__metric case-card__metric--text case-card__metric--comparison"><strong class="case-card__comparison"><span>5 дней в месяц</span><span class="case-card__comparison-after">→&nbsp;в реальном времени</span></strong><span>столько занимала сверка наличия и закупок</span></div>
             </div>
-            <p>Раньше сверки съедали значительную часть рабочего дня и ограничивали скорость обработки заказов. Теперь сразу видно, что можно собирать, а что ждёт партию.</p>
           </div>
           <div class="case-card__grid">
-            <div><span class="case-card__label">Было</span><p>По каждой проданной сделке вручную проверяли: есть ли товар, поставлен ли он в закупку, когда придёт партия. Сверки занимали значительную часть рабочего времени.</p></div>
+            <div><span class="case-card__label">Было</span><p>Проданные сделки проверяли вручную: есть ли товар, поставлен ли он в закупку, когда придёт партия. Сверка занимала пять рабочих дней раз в месяц — и всё это время данные уже устаревали.</p></div>
             <div><span class="case-card__label case-card__label--accent">Что сделали</span><p>Цепочка ИИ-агентов проверяет наличие по проданным сделкам, а если товара нет — поставлен ли он в закупку. По прямому поставщику подтягивает дату поставки, по поставкам из Китая — партию и дату прибытия. Фактические остатки берёт из 1С.</p><p class="case-card__output"><span aria-hidden="true">→</span><span><b>Система выдаёт:</b> Одну таблицу: что в наличии, что частично, что в закупке, что в пути и когда заказ можно собирать.</span></p></div>
           </div>
         </article>
@@ -812,15 +805,14 @@
           </div>
           <h3 class="case-card__title" data-case-title>График отгрузок по людям и человеко-часам</h3>
           <div class="case-card__result">
-            <span class="case-card__label">Результат</span>
+            <span class="case-card__label">Что улучшили</span>
+            <p class="case-card__result-lead">Раньше руководитель каждый день тратил не меньше трёх часов, чтобы отгрузки уходили в срок. Теперь график собирается утром сам, а он занимается работой, а не расчётами.</p>
             <div class="case-card__metrics">
-              <div class="case-card__metric case-card__metric--text"><strong>Каждый день</strong><span>план заданий пересобирается под фактический состав смены</span></div>
-              <div class="case-card__metric case-card__metric--text"><strong>Человеко-часы</strong><span>заказ ставится в график по реальной трудоёмкости, а не на глаз</span></div>
+              <div class="case-card__metric case-card__metric--text case-card__metric--comparison"><strong class="case-card__comparison"><span>От 3 часов руководителя ежедневно</span><span class="case-card__comparison-after">→&nbsp;6 секунд</span></strong><span>столько занимает сборка графика отгрузок</span></div>
             </div>
-            <p>Готовые к сборке заказы быстрее уходят в отгрузку, зоны комплектации меньше простаивают и меньше перегружаются.</p>
           </div>
           <div class="case-card__grid">
-            <div><span class="case-card__label">Было</span><p>График собирали вручную, без учёта того, сколько людей в смене и сколько времени займёт конкретный заказ. Зоны комплектации то простаивали, то перегружались.</p></div>
+            <div><span class="case-card__label">Было</span><p>Чтобы заказы уходили в срок, руководитель ежедневно от трёх часов вручную сводил график: кто в смене, что готово, сколько времени займёт заказ. Зоны комплектации всё равно то простаивали, то перегружались.</p></div>
             <div><span class="case-card__label case-card__label--accent">Что сделали</span><p>Следующий агент строит график по статусу товара, датам прибытия, табелю сотрудников и лимитам человеко-часов — с учётом зон комплектации и вывода разнорабочих на крупные заказы. Частично готовые заказы уходят в подготовительные работы.</p><p class="case-card__output"><span aria-hidden="true">→</span><span><b>Система выдаёт:</b> Задания на день из фактических заказов, распределённые по зонам, с расчётом времени сборки.</span></p></div>
           </div>
         </article>
@@ -832,15 +824,14 @@
           </div>
           <h3 class="case-card__title" data-case-title>Расчёт подстанции без очереди к инженеру</h3>
           <div class="case-card__result">
-            <span class="case-card__label">Результат</span>
+            <span class="case-card__label">Что улучшили</span>
+            <p class="case-card__result-lead">Клиент не ждёт, пока освободится инженер. Инженеры занимаются нетиповыми заявками, а не типовыми расчётами.</p>
             <div class="case-card__metrics">
-              <div class="case-card__metric case-card__metric--text"><strong>Без очереди к инженеру</strong><span>менеджер получает расчёт сам</span></div>
-              <div class="case-card__metric case-card__metric--text"><strong>Смета, спецификация, маржа</strong><span>в одном расчёте по заявке</span></div>
+              <div class="case-card__metric case-card__metric--text case-card__metric--comparison"><strong class="case-card__comparison"><span>От 3 часов</span><span class="case-card__comparison-after">→&nbsp;5 минут</span></strong><span>подготовка расчёта со сметой и спецификацией</span></div>
             </div>
-            <p>Клиент не ждёт, пока освободится инженер. Инженеры занимаются нетиповыми заявками, а не типовыми расчётами.</p>
           </div>
           <div class="case-card__grid">
-            <div><span class="case-card__label">Было</span><p>Расчёт делали инженеры вручную. Пока специалист готовил смету и спецификацию, менеджер и клиент ждали ответа.</p></div>
+            <div><span class="case-card__label">Было</span><p>Расчёт делали инженеры вручную — от трёх часов на заявку. Пока специалист готовил смету и спецификацию, менеджер и клиент ждали ответа.</p></div>
             <div><span class="case-card__label case-card__label--accent">Что сделали</span><p>Разобрали логику расчёта: входные данные, варианты комплектации, правила подбора. Система принимает данные заявки и формирует расчёт со сметой, спецификацией, внутренней маржой и рекомендациями, как оптимизировать стоимость.</p><p class="case-card__output"><span aria-hidden="true">→</span><span><b>Система выдаёт:</b> Готовый расчёт со спецификацией — сразу менеджеру.</span></p></div>
           </div>
         </article>
@@ -852,15 +843,15 @@
           </div>
           <h3 class="case-card__title" data-case-title>Входящие заявки из разных каналов не теряются</h3>
           <div class="case-card__result">
-            <span class="case-card__label">Результат</span>
+            <span class="case-card__label">Что улучшили</span>
+            <p class="case-card__result-lead">Клиент получает ответ, пока ещё смотрит на экран. Заявки не оседают в переписке, а руководитель видит скорость реакции и качество обработки.</p>
             <div class="case-card__metrics">
-              <div class="case-card__metric case-card__metric--text"><strong>4 канала в одной CRM</strong><span>почта, мессенджеры, сайт и Avito обрабатываются по общей логике</span></div>
-              <div class="case-card__metric case-card__metric--text"><strong>Задача на обращение</strong><span>карточка сделки и задача менеджеру создаются автоматически</span></div>
+              <div class="case-card__metric case-card__metric--text case-card__metric--comparison"><strong class="case-card__comparison"><span>5–20 минут</span><span class="case-card__comparison-after">→&nbsp;5 секунд</span></strong><span>время первого ответа клиенту</span></div>
+              <div class="case-card__metric case-card__metric--text"><strong>4 канала в одной CRM</strong><span>почта, мессенджеры, сайт и Avito</span></div>
             </div>
-            <p>Первый контакт происходит быстрее, заявки не оседают в переписке, а руководитель видит скорость реакции и качество обработки, а не узнаёт о потере через неделю.</p>
           </div>
           <div class="case-card__grid">
-            <div><span class="case-card__label">Было</span><p>Заявки шли в почту, мессенджеры, на сайт и Avito. Менеджеры отвечали не сразу, данные оставались в переписке, задачи в CRM появлялись не по каждому обращению. Потери руководитель замечал поздно.</p></div>
+            <div><span class="case-card__label">Было</span><p>Заявки шли в почту, мессенджеры, на сайт и Avito. Первый ответ занимал от 5 до 20 минут, данные оставались в переписке, задачи в CRM появлялись не по каждому обращению. Потери руководитель замечал поздно.</p></div>
             <div><span class="case-card__label case-card__label--accent">Что сделали</span><p>Подключили ИИ к входящим каналам и CRM. Он определяет суть обращения, фиксирует контакт, создаёт или обновляет карточку сделки и ставит задачу менеджеру. Выделяет важные детали заявки, подсказывает следующий шаг и что уточнить у клиента.</p><p class="case-card__output"><span aria-hidden="true">→</span><span><b>Система выдаёт:</b> Менеджеру — разобранную заявку: кто обратился, что нужно клиенту, что уточнить и какой следующий шаг сделать в CRM.</span></p></div>
           </div>
         </article>
@@ -872,16 +863,15 @@
           </div>
           <h3 class="case-card__title" data-case-title>Закупки: остатки, поставщики и логистика в одной системе</h3>
           <div class="case-card__result">
-            <span class="case-card__label">Результат</span>
+            <span class="case-card__label">Что улучшили</span>
+            <p class="case-card__result-lead">Снабженец больше не сводит данные — он исполняет готовый расчёт: согласовывает рейсы, договаривается с поставщиками. Дефицит виден заранее, партии объединяются в один рейс.</p>
             <div class="case-card__metrics">
-              <div class="case-card__metric case-card__metric--text"><strong>Ежедневно</strong><span>снабженец получает готовую карту закупок вместо ручной сверки</span></div>
-              <div class="case-card__metric case-card__metric--text"><strong>Партии в одну машину</strong><span>заказы собираются с учётом цены, срока и логистики</span></div>
+              <div class="case-card__metric case-card__metric--text case-card__metric--comparison"><strong class="case-card__comparison"><span>Всё рабочее время</span><span class="case-card__comparison-after">→&nbsp;4 часа</span></strong><span>и это уже не сверка, а переговоры с поставщиками и водителями</span></div>
             </div>
-            <p>Дефицит виден заранее, а не по факту. Более полные заказы поставщикам позволяют объединять партии и экономить на доставке.</p>
           </div>
           <div class="case-card__grid">
-            <div><span class="case-card__label">Было</span><p>Снабженец вручную сверял остатки, продажи, сезонность, заявки отдела продаж, цены и сроки поставщиков. Закупки держались на памяти человека: дефицит замечали поздно, а разрозненные партии делали логистику дороже.</p></div>
-            <div><span class="case-card__label case-card__label--accent">Что сделали</span><p>Подключили данные 1С: остатки, продажи, движение товаров, историю спроса. По ABC-анализу, min-max, сезонности и новым заявкам ИИ считает потребность, предлагает поставщиков и собирает заказы с учётом цены, срока и логистики. Поставки можно объединять в одну машину.</p><p class="case-card__output"><span aria-hidden="true">→</span><span><b>Система выдаёт:</b> Карту закупок на день: что и сколько купить, под какой заказ, у какого поставщика и к какому сроку.</span></p></div>
+            <div><span class="case-card__label">Было</span><p>Сверка остатков, продаж, сезонности, заявок отдела продаж, цен и сроков поставщиков занимала у снабженца всё рабочее время. Закупки держались на памяти человека: дефицит замечали поздно, а разрозненные партии делали логистику дороже.</p></div>
+            <div><span class="case-card__label case-card__label--accent">Что сделали</span><p>Подключили данные 1С: остатки, продажи, движение товаров, историю спроса. По ABC-анализу, min-max, сезонности и новым заявкам ИИ считает потребность, предлагает поставщиков и собирает заказы с учётом цены, срока и логистики. Поставки объединяются в один рейс.</p><p class="case-card__output"><span aria-hidden="true">→</span><span><b>Система выдаёт:</b> Карту закупок на день: что и сколько купить, под какой заказ, у какого поставщика и к какому сроку.</span></p></div>
           </div>
         </article>
 
@@ -892,15 +882,14 @@
           </div>
           <h3 class="case-card__title" data-case-title>Запись совещания превращается в задачи и контроль</h3>
           <div class="case-card__result">
-            <span class="case-card__label">Результат</span>
+            <span class="case-card__label">Что улучшили</span>
+            <p class="case-card__result-lead">Совещания стали короче и продуктивнее: не нужно вспоминать, ставили такую задачу или нет и кто должен был её сделать — это уже зафиксировано.</p>
             <div class="case-card__metrics">
-              <div class="case-card__metric case-card__metric--text"><strong>Из записи — в задачи</strong><span>решения, ответственные и сроки без ручного протокола</span></div>
-              <div class="case-card__metric case-card__metric--text"><strong>К следующей встрече</strong><span>выжимка: что проверить и какие задачи зависли</span></div>
+              <div class="case-card__metric case-card__metric--text"><strong>Фокус вместо «как у нас дела»</strong><span>встреча идёт по задачам и решениям, а не по ощущениям</span></div>
             </div>
-            <p>Договорённости не теряются между встречами, а руководителю не приходится вспоминать, кто что обещал.</p>
           </div>
           <div class="case-card__grid">
-            <div><span class="case-card__label">Было</span><p>После встреч договорённости оставались в памяти участников или в длинной записи. Задачи забывались, решения понимали по-разному, а перед следующим совещанием список вопросов собирали заново вручную.</p></div>
+            <div><span class="case-card__label">Было</span><p>После встреч договорённости оставались в памяти участников. Половина следующего совещания уходила на то, чтобы вспомнить: ставили эту задачу или нет, кто отвечал, сделано ли. Обсуждение шло «как дела по ощущениям».</p></div>
             <div><span class="case-card__label case-card__label--accent">Что сделали</span><p>Агенту передают запись встречи. Он готовит краткое резюме, фиксирует решения, задачи, ответственных, сроки и открытые вопросы и рассылает участникам письмо. К следующему совещанию собирает выжимку: что проверить, что зависло, каких решений ещё ждут.</p><p class="case-card__output"><span aria-hidden="true">→</span><span><b>Система выдаёт:</b> Участникам — протокол с задачами, сроками и ответственными. Руководителю — список договорённостей к проверке перед следующей встречей.</span></p></div>
           </div>
         </article>
@@ -912,15 +901,15 @@
           </div>
           <h3 class="case-card__title" data-case-title>План смены учитывает табель и реальную мощность участков</h3>
           <div class="case-card__result">
-            <span class="case-card__label">Результат</span>
+            <span class="case-card__label">Что улучшили</span>
+            <p class="case-card__result-lead">Раньше загрузка скакала: то мало, то перегруз. Считать её вручную было нереально — слишком много расчётов. Теперь план строится на доступных часах, а резерв остаётся на срочные задачи.</p>
             <div class="case-card__metrics">
-              <div class="case-card__metric"><strong>≈85%</strong><span>плановая загрузка производства</span></div>
-              <div class="case-card__metric"><strong>≈15%</strong><span>резерв мощности при такой загрузке: на срочное и нештатное</span></div>
+              <div class="case-card__metric case-card__metric--text case-card__metric--comparison"><strong class="case-card__comparison"><span>Загрузка не считалась</span><span class="case-card__comparison-after">→&nbsp;≈85% каждый день</span></strong><span>стабильный стандарт вместо рваного графика</span></div>
+              <div class="case-card__metric"><strong>≈15%</strong><span>резерв мощности на срочное и нештатное</span></div>
             </div>
-            <p>План строится на доступных часах, а не на желаемых: меньше простоев и перегрузок, заказы выполняются вовремя, отделы работают согласованно.</p>
           </div>
           <div class="case-card__grid">
-            <div><span class="case-card__label">Было</span><p>Производственный план нужно было собирать с учётом фактического выхода сотрудников, отпусков, болезней и мощности участков. Без точного учёта доступных часов одни смены уходили в перегруз, в других возникали простои и срывались планы.</p></div>
+            <div><span class="case-card__label">Было</span><p>Загрузка производства не учитывалась вообще: данные были, но сделать столько расчётов вручную сотрудники не могли. График получался рваным — одни смены уходили в перегруз, в других возникали простои и срывались планы.</p></div>
             <div><span class="case-card__label case-card__label--accent">Что сделали</span><p>Связали ИИ с заказами, табелем, участками, нормативами времени и доступными сотрудниками. Он рассчитывает лимит-часы на день и формирует заказ-наряды под реальную мощность производства. При изменении состава смены план пересчитывается, а загрузка держится примерно на 85% — остальное остаётся резервом.</p><p class="case-card__output"><span aria-hidden="true">→</span><span><b>Система выдаёт:</b> Выполнимый план на день с учётом реального состава смены, доступных часов, мощности участков и текущих заказов.</span></p></div>
           </div>
         </article>
@@ -932,15 +921,14 @@
           </div>
           <h3 class="case-card__title" data-case-title>Деньги, оплаты и обязательства видны в одной сводке</h3>
           <div class="case-card__result">
-            <span class="case-card__label">Результат</span>
+            <span class="case-card__label">Что улучшили</span>
+            <p class="case-card__result-lead">Раньше на сбор картины уходил месяц, и реальное положение дел было видно только в самом конце. Теперь всё связано между собой, а подсвеченные просрочки начали закрываться быстрее.</p>
             <div class="case-card__metrics">
-              <div class="case-card__metric case-card__metric--text"><strong>Одна сводка</strong><span>вместо CRM, таблиц оплат и учётных систем по отдельности</span></div>
-              <div class="case-card__metric case-card__metric--text"><strong>Обновляется автоматически</strong><span>с ответственным по каждой зоне риска</span></div>
+              <div class="case-card__metric case-card__metric--text case-card__metric--comparison"><strong class="case-card__comparison"><span>Картина в конце месяца</span><span class="case-card__comparison-after">→&nbsp;в любой момент</span></strong><span>деньги видно сразу, а не по итогам сбора данных</span></div>
             </div>
-            <p>Зависшие оплаты и ближайшие обязательства видно сразу — кассовым разрывом можно управлять заранее, а не по факту.</p>
           </div>
           <div class="case-card__grid">
-            <div><span class="case-card__label">Было</span><p>Оплаты, счета, закупки, дебиторская задолженность и статусы сделок находились в разных таблицах, CRM и учётных системах. Понять, где зависли деньги, какие обязательства впереди и что требует внимания в первую очередь, было сложно.</p></div>
+            <div><span class="case-card__label">Было</span><p>Оплаты, счета, закупки, дебиторская задолженность и статусы сделок находились в разных таблицах, CRM и учётных системах. Сбор картины растягивался на месяц — реальное положение дел руководитель видел только к его концу.</p></div>
             <div><span class="case-card__label case-card__label--accent">Что сделали</span><p>Подключили ИИ к CRM, таблицам оплат, данным о поставщиках, дебиторской задолженности, закупкам и статусам сделок. Он собирает картину поступлений, просрочек, ожидаемых платежей и обязательств, выделяет сделки без оплаты, незакрытые документы и зоны риска и показывает ответственных.</p><p class="case-card__output"><span aria-hidden="true">→</span><span><b>Система выдаёт:</b> Руководителю — финансовую сводку: где сейчас деньги, какие оплаты зависли, где возник риск и кто отвечает за решение.</span></p></div>
           </div>
         </article>
@@ -952,15 +940,15 @@
           </div>
           <h3 class="case-card__title" data-case-title>ИИ сопровождает стажёра и готовит заключение руководителю</h3>
           <div class="case-card__result">
-            <span class="case-card__label">Результат</span>
+            <span class="case-card__label">Что улучшили</span>
+            <p class="case-card__result-lead">Срок стажировки прежний — меняются её качество и нагрузка на наставника. Решение о готовности сотрудника опирается на задания, ошибки и динамику, а не на личное впечатление.</p>
             <div class="case-card__metrics">
-              <div class="case-card__metric case-card__metric--text"><strong>Ежедневно</strong><span>разбор отчёта и выполненных заданий стажёра</span></div>
-              <div class="case-card__metric case-card__metric--text"><strong>Один стандарт оценки</strong><span>по заданиям, ошибкам и динамике, а не по впечатлению наставника</span></div>
+              <div class="case-card__metric case-card__metric--text"><strong>Наставник нужен только в конце</strong><span>принять решение, а не вести стажёра за руку</span></div>
+              <div class="case-card__metric case-card__metric--text"><strong>Один стандарт обучения</strong><span>программа не зависит от того, какой наставник достался</span></div>
             </div>
-            <p>Наставники не повторяют одни и те же объяснения, а решение о готовности сотрудника опирается на факты прохождения программы.</p>
           </div>
           <div class="case-card__grid">
-            <div><span class="case-card__label">Было</span><p>Программа адаптации существовала, но наставники вручную выдавали задания, проверяли ответы и читали дневные отчёты. На сопровождение уходило много времени, а итоговая оценка стажёра зависела от подхода конкретного наставника.</p></div>
+            <div><span class="case-card__label">Было</span><p>Программа адаптации существовала, но наставники вручную выдавали задания, проверяли ответы и читали дневные отчёты. Каждый вёл стажёра по-своему, и итоговая оценка зависела от того, кто именно достался в наставники.</p></div>
             <div><span class="case-card__label case-card__label--accent">Что сделали</span><p>ИИ ведёт сотрудника по заранее созданной программе и адаптирует её под конкретного стажёра. Отслеживает выполненные задания, затраченное время и трудности, в конце дня разбирает отчёт, проверяет ответы и собирает динамику прохождения. По этим данным готовит заключение для руководителя.</p><p class="case-card__output"><span aria-hidden="true">→</span><span><b>Система выдаёт:</b> Руководителю — что стажёр прошёл и чего не понял, где его сильные и слабые стороны и готов ли он работать самостоятельно.</span></p></div>
           </div>
         </article>
@@ -972,12 +960,11 @@
           </div>
           <h3 class="case-card__title" data-case-title>Сотрудники получают ответы по документам компании</h3>
           <div class="case-card__result">
-            <span class="case-card__label">Результат</span>
+            <span class="case-card__label">Что улучшили</span>
+            <p class="case-card__result-lead">Новички быстрее входят в работу, повторных вопросов руководителям меньше, а одинаковые процедуры выполняются одинаково.</p>
             <div class="case-card__metrics">
-              <div class="case-card__metric case-card__metric--text"><strong>Ответ по документам компании</strong><span>регламенты, инструкции, шаблоны и процессы в одном сервисе</span></div>
               <div class="case-card__metric case-card__metric--text"><strong>Вместо вопроса руководителю</strong><span>сотрудник спрашивает сервис и получает порядок действий</span></div>
             </div>
-            <p>Новички быстрее входят в работу, повторных вопросов руководителям меньше, а одинаковые процедуры выполняются одинаково.</p>
           </div>
           <div class="case-card__grid">
             <div><span class="case-card__label">Было</span><p>Регламенты, инструкции, описания продуктов, коммерческие предложения и правила процессов лежали в разных папках и документах. Сотрудники не знали, где искать, регулярно задавали руководителям одни и те же вопросы и делали одну работу по-разному.</p></div>
@@ -992,15 +979,15 @@
           </div>
           <h3 class="case-card__title" data-case-title>Проверка договоров и подготовка счетов и актов</h3>
           <div class="case-card__result">
-            <span class="case-card__label">Результат</span>
+            <span class="case-card__label">Что улучшили</span>
+            <p class="case-card__result-lead">Первичная проверка перестаёт быть ручной, реквизиты и даты не приходится сверять дважды, а путь от согласования договора до документов становится короче.</p>
             <div class="case-card__metrics">
-              <div class="case-card__metric case-card__metric--text"><strong>Карта рисков по договору</strong><span>пункты, реквизиты, сроки, ответственность и отклонения от шаблона</span></div>
+              <div class="case-card__metric case-card__metric--text case-card__metric--comparison"><strong class="case-card__comparison"><span>От 1 часа</span><span class="case-card__comparison-after">→&nbsp;10 минут</span></strong><span>первичная проверка договора</span></div>
               <div class="case-card__metric case-card__metric--text"><strong>Счёт и акт</strong><span>готовятся, если проверка не выявила критичных проблем</span></div>
             </div>
-            <p>Первичная проверка перестаёт быть ручной, реквизиты и даты не приходится сверять дважды, а путь от согласования договора до документов становится короче.</p>
           </div>
           <div class="case-card__grid">
-            <div><span class="case-card__label">Было</span><p>Юристы и менеджеры вручную проверяли договоры: риски, реквизиты, сроки, штрафы, ответственность и комплектность приложений. После согласования отдельно готовили счета и акты, повторно сверяли даты и реквизиты — это занимало время и создавало ошибки.</p></div>
+            <div><span class="case-card__label">Было</span><p>Юристы и менеджеры вручную проверяли договоры: риски, реквизиты, сроки, штрафы, ответственность и комплектность приложений — от часа на документ. После согласования отдельно готовили счета и акты и заново сверяли даты и реквизиты.</p></div>
             <div><span class="case-card__label case-card__label--accent">Что сделали</span><p>Обучили ИИ правилам проверки документов компании. Он разбирает пункты договора, реквизиты, сроки, ответственность, условия оплаты, приложения и отклонения от шаблона. Юрист получает карту рисков и замечаний; если проверка не выявила критичных проблем, ИИ может подготовить счёт и акт с нужными реквизитами и датами.</p><p class="case-card__output"><span aria-hidden="true">→</span><span><b>Система выдаёт:</b> Юристу — договор с картой рисков. Менеджеру — подготовленные счёт и акт, если проверка не выявила критичных проблем.</span></p></div>
           </div>
         </article>
@@ -1012,15 +999,14 @@
           </div>
           <h3 class="case-card__title" data-case-title>Контрольные точки показывают качество работы сотрудников</h3>
           <div class="case-card__result">
-            <span class="case-card__label">Результат</span>
+            <span class="case-card__label">Что улучшили</span>
+            <p class="case-card__result-lead">Пропущенные этапы, пустые данные и просрочки видно в момент, когда их ещё можно исправить. Решения опираются на факты выполнения задач, а не на выручку в конце месяца.</p>
             <div class="case-card__metrics">
-              <div class="case-card__metric case-card__metric--text"><strong>Сигнал при красной зоне</strong><span>руководитель узнаёт о нарушении сразу, а не в конце периода</span></div>
-              <div class="case-card__metric case-card__metric--text"><strong>Отчёт по действиям</strong><span>не только выручка, но и выполненные и пропущенные этапы</span></div>
+              <div class="case-card__metric case-card__metric--text case-card__metric--comparison"><strong class="case-card__comparison"><span>Постфактум</span><span class="case-card__comparison-after">→&nbsp;в моменте</span></strong><span>нарушение процесса видно сразу, а не когда уже поздно</span></div>
             </div>
-            <p>Пропущенные этапы, пустые данные и просрочки видны раньше, а управленческие решения опираются на факты выполнения задач.</p>
           </div>
           <div class="case-card__grid">
-            <div><span class="case-card__label">Было</span><p>Руководителю важно было видеть не только выручку, но и ежедневные действия: обработанные заявки, задачи, движение сделок. Проверять всё вручную было сложно, поэтому пропущенные этапы, пустые данные и нарушения процесса замечали поздно.</p></div>
+            <div><span class="case-card__label">Было</span><p>Руководителю важно было видеть не только выручку, но и ежедневные действия: обработанные заявки, задачи, движение сделок. Проверять всё вручную было невозможно, поэтому о пропущенных этапах и нарушениях процесса узнавали постфактум.</p></div>
             <div><span class="case-card__label case-card__label--accent">Что сделали</span><p>Подключили ИИ к KPI сотрудников, CRM, задачам и контрольным точкам процесса. Он сверяет действия с правилами компании, фиксирует выполненные и пропущенные этапы, пустые данные, просрочки и критичные отклонения. В конце периода формирует отчёт, а при красной зоне сразу отправляет сигнал руководителю.</p><p class="case-card__output"><span aria-hidden="true">→</span><span><b>Система выдаёт:</b> По каждому сотруднику: где теряются задачи, нарушается процесс или останавливается сделка — и в какой момент нужно вмешаться.</span></p></div>
           </div>
         </article>
@@ -1032,12 +1018,12 @@
           </div>
           <h3 class="case-card__title" data-case-title>Собственник видит смысл показателей и приоритеты действий</h3>
           <div class="case-card__result">
-            <span class="case-card__label">Результат</span>
+            <span class="case-card__label">Что улучшили</span>
+            <p class="case-card__result-lead">Ручного контроля становится меньше: собственник тратит время не на интерпретацию цифр, а на решения.</p>
             <div class="case-card__metrics">
               <div class="case-card__metric case-card__metric--text"><strong>3 зоны состояния</strong><span>хорошая, внимания и красная: понятно, куда смотреть в первую очередь</span></div>
               <div class="case-card__metric case-card__metric--text"><strong>Не цифры, а объяснение</strong><span>что происходит, из-за чего и кто отвечает</span></div>
             </div>
-            <p>Ручного контроля становится меньше: собственник тратит время не на интерпретацию цифр, а на решения.</p>
           </div>
           <div class="case-card__grid">
             <div><span class="case-card__label">Было</span><p>Данные продаж, производства, склада, закупок, финансов и HR находились в CRM, 1С, таблицах, почте и чатах. Собственник получал цифры, но тратил время, чтобы понять их и найти проблемы, которые требуют вмешательства сейчас.</p></div>
