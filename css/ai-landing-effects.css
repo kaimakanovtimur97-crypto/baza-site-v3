@@ -48,8 +48,9 @@ a:hover{color:var(--acc)}
 .case-card__metric{display:flex;align-items:center;gap:20px;min-width:0}
 .case-card__metric strong{flex:0 0 auto;font-family:'Gilroy','Jost',sans-serif;font-weight:600;font-size:clamp(48px,5.6vw,76px);letter-spacing:-.045em;line-height:1;color:#fff;font-variant-numeric:tabular-nums;white-space:nowrap}
 .case-card__metric span{max-width:30ch;font-size:14px;line-height:1.4;color:rgba(255,255,255,.8);text-wrap:pretty}
-.case-card__metric--text{flex-wrap:wrap;gap:10px 20px}
-.case-card__metric--text strong{font-size:clamp(27px,3vw,40px) !important;white-space:normal;overflow-wrap:anywhere}
+.case-card__metric--text{flex-direction:column;align-items:flex-start;gap:8px}
+.case-card__metric--text strong{flex:0 1 auto;max-width:100%;font-size:clamp(22px,2.4vw,32px) !important;letter-spacing:-.025em;line-height:1.12;white-space:normal;overflow-wrap:anywhere;text-wrap:balance}
+.case-card__metric--text span{max-width:48ch}
 .case-card__result>p{padding-top:16px;border-top:1px solid rgba(255,255,255,.16);font-size:15.5px;line-height:1.5;color:rgba(255,255,255,.82);text-wrap:pretty}
 @media (hover:hover) and (pointer:fine){
 [data-mobile-slider-controls] button:not(:disabled):hover{border-color:var(--night2);background:var(--night2);color:#fff}
@@ -82,6 +83,7 @@ body{--rv:14px;--rt:520ms}
 .case-card__grid{grid-template-columns:minmax(0,1fr)}
 .case-card__metric{gap:16px}
 .case-card__metric strong{font-size:clamp(44px,12vw,58px)}
+.case-card__metric--text{gap:8px}
 #faq [data-mobile-static-reveal],#faq [data-mobile-static-reveal] [data-reveal]{--r:1 !important;opacity:1 !important;transform:none !important;transition:none !important;animation:none !important}
 }
 @media (max-width:360px){.case-card__metric{flex-direction:column;align-items:flex-start;gap:8px}}
