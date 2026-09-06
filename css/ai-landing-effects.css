@@ -97,3 +97,14 @@ dialog[data-modal]{border:0;padding:0;background:transparent;color:inherit;width
 dialog[data-modal]::backdrop{background:rgba(4,6,15,.76);-webkit-backdrop-filter:blur(7px);backdrop-filter:blur(7px)}
 [data-cases-track]{scrollbar-width:none;-ms-overflow-style:none}
 [data-cases-track]::-webkit-scrollbar{display:none}
+
+/* Keep the first five FAQ entries visible; native disclosure works without JS. */
+.faq-more__button{display:flex;align-items:center;justify-content:center;gap:12px;min-height:52px;padding:14px 24px;border:1px solid rgba(25,25,25,.2);border-radius:999px;list-style:none;cursor:pointer;font:600 15px 'Gilroy','Jost',sans-serif;transition:background .2s,color .2s}
+.faq-more__button::-webkit-details-marker{display:none}
+.faq-more__button:hover{background:var(--night2);color:#fff}
+.faq-more__button:focus-visible{outline:2px solid var(--accd);outline-offset:4px}
+.faq-more__items{display:flex;flex-direction:column;gap:12px;padding-top:12px}
+.faq-more__open,.faq-more[open] .faq-more__closed{display:none}
+.faq-more[open] .faq-more__open{display:inline}
+.faq-more[open] .faq-more__arrow{transform:rotate(180deg)}
+#faq .faq-more [data-faq-item]{opacity:1;transform:none}
