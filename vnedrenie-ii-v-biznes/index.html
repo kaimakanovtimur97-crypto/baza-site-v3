@@ -33,7 +33,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
 <link rel="preload" href="../img/ai-automation-hero.webp" as="image" type="image/webp" fetchpriority="high">
-<link rel="stylesheet" href="../css/ai-landing-effects.css?v=20260906-cases">
+<link rel="stylesheet" href="../css/ai-landing-effects.css?v=20260906-cases-v2">
 <link rel="stylesheet" href="../css/cookie-consent.css?v=20260904-ym1">
 <script src="../js/cookie-consent.js?v=20260904-ym1" defer></script>
 <script type="application/ld+json">
@@ -760,159 +760,132 @@
         <button type="button" data-case-filter="management" aria-pressed="false">Управление · 2</button>
       </div>
 
+      <div class="cases-section__controls cases-section__controls--top" data-case-top-controls role="group" aria-label="Навигация над кейсом" hidden>
+        <p class="cases-section__counter" aria-hidden="true"><span data-case-current>1</span> / <span data-case-total>14</span></p>
+        <div class="cases-section__navigation">
+          <button type="button" data-case-prev aria-label="Предыдущий слайд" class="cases-section__arrow" disabled>←</button>
+          <button type="button" data-case-next aria-label="Следующий слайд" class="cases-section__arrow">→</button>
+        </div>
+      </div>
+
       <div data-cases-region role="region" aria-roledescription="карусель" aria-label="Кейсы внедрения ИИ" tabindex="0" style="position:relative;border-radius:clamp(22px,2.8vw,34px);outline-offset:6px">
         <div data-cases-track style="display:flex;gap:clamp(14px,1.6vw,20px);overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding-bottom:4px">
-        <article class="case-card" data-case-slide data-case-kind="real" data-niche="sales" role="group" aria-roledescription="слайд" aria-label="Слайд 1 из 14">
-          <div class="case-card__header" data-case-header>
-            <span class="case-card__badge" data-case-category>Производство мебели</span>
-            <span data-case-position data-case-suffix="">Слайд 1 из 14</span>
-          </div>
-          <h3 class="case-card__title" data-case-title>ИИ ведёт аналитику и обновляет объявления на Avito</h3>
-          <div class="case-card__description">
-            <h4 class="case-card__label">Что берёт на себя ИИ</h4>
-            <div class="case-card__copy">
-              <p>Каждый день ИИ собирает показы, просмотры, контакты и стоимость продвижения объявлений мебельного производства. Затем разбирает переписки с покупателями: определяет, какие обращения относятся к продукции компании, и связывает качество заявок с конкретными объявлениями.</p>
-              <p>На основе этих данных ИИ меняет заголовки, описания и ставки продвижения. Все правки вносит сам, а команда получает сводку по объявлениям: конверсия, качество обращений и список изменений. Так можно оценивать продвижение по реальному интересу покупателей и корректировать слабые объявления.</p>
-            </div>
-          </div>
-          <div class="case-card__result">
-            <h4 class="case-card__label">Результат</h4>
-            <p class="case-card__result-main">Объявления обновляются без ручных правок</p>
-            <p class="case-card__result-detail">ИИ ежедневно проверяет эффективность продвижения и сам вносит изменения в объявления.</p>
-          </div>
-        </article>
-
-        <article class="case-card" data-case-slide data-case-kind="real" data-niche="operations" role="group" aria-roledescription="слайд" aria-label="Слайд 2 из 14 · кейс 2, часть 1">
+        <article class="case-card" data-case-slide data-case-kind="real" data-niche="operations" role="group" aria-roledescription="слайд" aria-label="Слайд 1 из 14 · часть 1 из 2" id="baza-case-slide-2">
           <div class="case-card__header" data-case-header>
             <span class="case-card__badge" data-case-category>Поставка школьного оборудования</span>
-            <span data-case-position data-case-suffix=" · кейс 2, часть 1">Слайд 2 из 14 · кейс 2, часть 1</span>
+            <span data-case-position data-case-suffix=" · часть 1 из 2">Слайд 1 из 14 · часть 1 из 2</span>
           </div>
-          <h3 class="case-card__title" data-case-title>Закупки и остатки связаны с каждым заказом</h3>
+          <h3 class="case-card__title" data-case-title>От закупки до отгрузки — одна система</h3>
           <div class="case-card__description">
             <h4 class="case-card__label">Как это устроено</h4>
             <div class="case-card__copy">
-              <p>ИИ проверяет состав проданных заказов и сопоставляет его с фактическими остатками в 1С. Если товара не хватает, определяет, поставлен ли он в закупку. Для прямых поставок подтягивает дату поступления, для товаров из Китая — нужную партию и дату её прибытия.</p>
-              <p>Отдел комплектации работает с единой таблицей: что есть полностью, что частично, что уже закуплено и что ещё в пути. Эти статусы передаются в план сборки и отгрузок. Картина обновляется в реальном времени; ручная сверка, на которую уходило пять рабочих дней в месяц, больше не нужна.</p>
+              <p>Связали заказы, остатки в 1С и работу отдела комплектации. ИИ проверяет наличие и сроки поставок, затем формирует план сборки и отгрузок с учётом людей в смене.</p>
+              <div class="case-card__more">
+                <button type="button" class="case-card__more-button" data-case-more aria-controls="case-details-2" aria-expanded="true" hidden>Подробнее о работе</button>
+                <div id="case-details-2" data-case-more-content>
+                  <p>Статусы обновляются в реальном времени: видно, что в наличии, что закуплено и когда придёт партия. Система учитывает прямые поставки и партии из Китая. Ручная сверка, занимавшая пять рабочих дней в месяц, больше не нужна.</p>
+                </div>
+              </div>
             </div>
           </div>
           <div class="case-card__result">
             <h4 class="case-card__label">Результат</h4>
             <p class="case-card__result-main">Экономия от 150&nbsp;000&nbsp;₽ в месяц</p>
-            <p class="case-card__result-detail">По всему проекту автоматизации закупок, комплектации и отгрузок: отдельного сотрудника для планирования нанимать не потребовалось.</p>
+            <p class="case-card__result-detail">По всему проекту: экономия на зарплате и подписках, без найма дополнительного сотрудника для планирования.</p>
           </div>
         </article>
 
-        <article class="case-card" data-case-slide data-case-kind="real" data-niche="operations" role="group" aria-roledescription="слайд" aria-label="Слайд 3 из 14 · кейс 2, часть 2">
+        <article class="case-card" data-case-slide data-case-kind="real" data-niche="operations" role="group" aria-roledescription="слайд" aria-label="Слайд 2 из 14 · часть 2 из 2" id="baza-case-slide-3">
           <div class="case-card__header" data-case-header>
             <span class="case-card__badge" data-case-category>Поставка школьного оборудования</span>
-            <span data-case-position data-case-suffix=" · кейс 2, часть 2">Слайд 3 из 14 · кейс 2, часть 2</span>
+            <span data-case-position data-case-suffix=" · часть 2 из 2">Слайд 2 из 14 · часть 2 из 2</span>
           </div>
-          <h3 class="case-card__title" data-case-title>Комплектация и отгрузки спланированы по мощности смены</h3>
+          <h3 class="case-card__title" data-case-title>Комплектация по мощности смены</h3>
           <div class="case-card__description">
             <h4 class="case-card__label">Как работает решение</h4>
             <div class="case-card__copy">
-              <p>ИИ получает статусы товаров, даты поставок, табель сотрудников и нормативы времени на сборку. По этим данным распределяет реальные заказы между зонами комплектации: учитывает, сколько человек вышло в смену и какой объём работы они могут выполнить. Для крупных заказов учитывает привлечение разнорабочих.</p>
-              <p>Каждая зона получает задания на день с расчётом времени сборки. Частично готовые заказы направляются на подготовительные работы, а поступившие товары включаются в план отгрузок. График собирается за 6 секунд — прежде руководитель тратил на его составление от 3 часов ежедневно.</p>
+              <p>В том же проекте ИИ распределяет заказы по зонам комплектации. Учитывает наличие товаров, сроки поставок, состав смены и нормативы сборки — каждая зона получает выполнимый объём работ.</p>
+              <div class="case-card__more">
+                <button type="button" class="case-card__more-button" data-case-more aria-controls="case-details-3" aria-expanded="true" hidden>Подробнее о работе</button>
+                <div id="case-details-3" data-case-more-content>
+                  <p>Частично готовые заказы включаются в подготовительные работы; для крупных заказов учитывается привлечение разнорабочих. График собирается за 6 секунд. Раньше руководитель ежедневно тратил на его составление от 3 часов.</p>
+                </div>
+              </div>
             </div>
           </div>
           <div class="case-card__result">
             <h4 class="case-card__label">Результат</h4>
-            <p class="case-card__result-main">Заказы из наличия — отгрузка за 4 часа</p>
-            <p class="case-card__result-detail">Компания может отгрузить заказ в течение 4 часов с момента поступления, когда нужный товар доступен для комплектации.</p>
+            <p class="case-card__result-main">Отгрузка заказа из наличия — за 4 часа</p>
+            <p class="case-card__result-detail">С момента поступления заказа, когда нужный товар доступен для комплектации.</p>
           </div>
         </article>
 
-        <article class="case-card" data-case-slide data-case-kind="real" data-niche="sales" role="group" aria-roledescription="слайд" aria-label="Слайд 4 из 14">
+        <article class="case-card" data-case-slide data-case-kind="real" data-niche="sales" role="group" aria-roledescription="слайд" aria-label="Слайд 3 из 14" id="baza-case-slide-4">
           <div class="case-card__header" data-case-header>
             <span class="case-card__badge" data-case-category>Производство трансформаторных подстанций</span>
-            <span data-case-position data-case-suffix="">Слайд 4 из 14</span>
+            <span data-case-position data-case-suffix="">Слайд 3 из 14</span>
           </div>
-          <h3 class="case-card__title" data-case-title>Расчёт подстанции поступает сразу менеджеру</h3>
+          <h3 class="case-card__title" data-case-title>Автоматический расчёт типовых подстанций</h3>
           <div class="case-card__description">
             <h4 class="case-card__label">Что делает система</h4>
             <div class="case-card__copy">
-              <p>Разобрали инженерную логику расчёта трансформаторной подстанции: какие параметры нужны на входе, как подбираются компоненты и какие варианты комплектации допустимы. ИИ принимает данные заявки и рассчитывает решение по этим правилам, включая состав оборудования и стоимость.</p>
-              <p>Менеджер получает смету и спецификацию, внутреннюю маржу и рекомендации по оптимизации стоимости. Типовые заявки проходят расчёт автоматически, а инженеры сосредоточены на нетиповых задачах. Подготовка такого расчёта раньше занимала от 3 часов работы специалиста.</p>
+              <p>ИИ принимает параметры заявки и рассчитывает типовую трансформаторную подстанцию по правилам компании: подбирает компоненты, проверяет комплектацию и определяет стоимость оборудования.</p>
+              <div class="case-card__more">
+                <button type="button" class="case-card__more-button" data-case-more aria-controls="case-details-4" aria-expanded="true" hidden>Подробнее о работе</button>
+                <div id="case-details-4" data-case-more-content>
+                  <p>Логику расчёта разобрали и описали до внедрения. Менеджер получает комплект для работы с клиентом, внутреннюю маржу и рекомендации по оптимизации стоимости. Инженеры подключаются к нетиповым задачам, где требуется их профессиональное решение.</p>
+                </div>
+              </div>
             </div>
           </div>
           <div class="case-card__result">
             <h4 class="case-card__label">Результат</h4>
-            <p class="case-card__result-main">Готовый расчёт подстанции — за 5 минут</p>
-            <p class="case-card__result-detail">Менеджер получает смету и спецификацию для работы с клиентом без ожидания свободного инженера.</p>
+            <p class="case-card__result-main">Смета и спецификация — за 5 минут</p>
+            <p class="case-card__result-detail">Типовой расчёт, на который раньше уходило от 3 часов работы инженера.</p>
           </div>
         </article>
 
-        <article class="case-card" data-case-slide data-case-kind="real" data-niche="sales" role="group" aria-roledescription="слайд" aria-label="Слайд 5 из 14">
+        <article class="case-card" data-case-slide data-case-kind="real" data-niche="sales" role="group" aria-roledescription="слайд" aria-label="Слайд 4 из 14" id="baza-case-slide-5">
           <div class="case-card__header" data-case-header>
             <span class="case-card__badge" data-case-category>B2B-продажи · оборудование</span>
-            <span data-case-position data-case-suffix="">Слайд 5 из 14</span>
+            <span data-case-position data-case-suffix="">Слайд 4 из 14</span>
           </div>
-          <h3 class="case-card__title" data-case-title>Заявка получает ответ и попадает в работу менеджеру</h3>
+          <h3 class="case-card__title" data-case-title>Входящие обращения из четырёх каналов — в одной CRM</h3>
           <div class="case-card__description">
             <h4 class="case-card__label">Как работает решение</h4>
             <div class="case-card__copy">
-              <p>Подключили ИИ к четырём источникам обращений: почте, мессенджерам, сайту и Avito. Он даёт первый ответ, определяет суть запроса, фиксирует контакт и создаёт или обновляет сделку в CRM. Важные данные из переписки сразу оказываются в карточке клиента.</p>
-              <p>Менеджер получает задачу и краткий разбор: кто обратился, какое оборудование нужно, что уточнить и какой следующий шаг сделать. Руководитель видит скорость реакции и качество обработки. Время первого ответа сократилось с 5–20 минут до 5 секунд.</p>
+              <p>ИИ подключён к почте, мессенджерам, сайту и Avito. Определяет суть обращения, фиксирует контакт и создаёт или обновляет сделку в CRM. В карточке клиента сохраняются важные детали переписки: какое оборудование нужно, какие вопросы уже обсуждались и что осталось уточнить.</p>
+              <div class="case-card__more">
+                <button type="button" class="case-card__more-button" data-case-more aria-controls="case-details-5" aria-expanded="true" hidden>Подробнее о работе</button>
+                <div id="case-details-5" data-case-more-content>
+                  <p>Менеджер получает задачу с кратким разбором заявки и рекомендуемым следующим шагом. Руководитель может оценить скорость реакции и качество обработки по данным системы, без отдельного сбора переписок.</p>
+                </div>
+              </div>
             </div>
           </div>
           <div class="case-card__result">
             <h4 class="case-card__label">Результат</h4>
-            <p class="case-card__result-main">Клиент получает первый ответ за 5 секунд</p>
-            <p class="case-card__result-detail">Обращения из четырёх каналов фиксируются в CRM и передаются менеджеру с задачей и данными клиента.</p>
+            <p class="case-card__result-main">Первый ответ клиенту — за 5 секунд</p>
+            <p class="case-card__result-detail">До внедрения клиент ждал первого ответа от 5 до 20 минут.</p>
           </div>
         </article>
 
-        <article class="case-card" data-case-slide data-case-kind="real" data-niche="operations" role="group" aria-roledescription="слайд" aria-label="Слайд 6 из 14">
-          <div class="case-card__header" data-case-header>
-            <span class="case-card__badge" data-case-category>Закупки · торговля и производство</span>
-            <span data-case-position data-case-suffix="">Слайд 6 из 14</span>
-          </div>
-          <h3 class="case-card__title" data-case-title>Снабженец работает по готовому плану закупок</h3>
-          <div class="case-card__description">
-            <h4 class="case-card__label">Решение в действии</h4>
-            <div class="case-card__copy">
-              <p>ИИ использует остатки, продажи, движение товаров и историю спроса из 1С. Учитывает сезонность, минимальный и максимальный запас, новые заявки отдела продаж и ABC-анализ — какие позиции дают основной оборот. По этим данным рассчитывает, что и в каком количестве нужно закупить.</p>
-              <p>Затем сопоставляет поставщиков по цене, срокам и логистике и объединяет подходящие партии в один рейс. Снабженец получает план на день: товар, количество, поставщик, заказ клиента и нужная дата. Его рабочее время уходит на согласование закупок и рейсов, а расчёты и сверки выполняет ИИ.</p>
-            </div>
-          </div>
-          <div class="case-card__result">
-            <h4 class="case-card__label">Результат</h4>
-            <p class="case-card__result-main">Работа по закупкам занимает 4 часа</p>
-            <p class="case-card__result-detail">Снабженец договаривается с поставщиками и водителями по готовому расчёту потребности и поставок.</p>
-          </div>
-        </article>
-
-        <article class="case-card" data-case-slide data-case-kind="real" data-niche="team" role="group" aria-roledescription="слайд" aria-label="Слайд 7 из 14">
-          <div class="case-card__header" data-case-header>
-            <span class="case-card__badge" data-case-category>Командная работа · совещания</span>
-            <span data-case-position data-case-suffix="">Слайд 7 из 14</span>
-          </div>
-          <h3 class="case-card__title" data-case-title>Договорённости на совещании становятся задачами</h3>
-          <div class="case-card__description">
-            <h4 class="case-card__label">Что берёт на себя ИИ</h4>
-            <div class="case-card__copy">
-              <p>После совещания ИИ получает запись и собирает из неё рабочий протокол: краткое содержание, принятые решения, задачи, ответственных, сроки и открытые вопросы. Участники получают письмо с договорённостями и могут свериться с ним во время работы.</p>
-              <p>К следующей встрече ИИ готовит список для проверки: какие поручения нужно обсудить, что осталось незавершённым и где требуется решение. Руководитель начинает совещание с конкретной повестки, а команда обсуждает выполнение уже зафиксированных задач.</p>
-            </div>
-          </div>
-          <div class="case-card__result">
-            <h4 class="case-card__label">Результат</h4>
-            <p class="case-card__result-main">Договорённости закреплены в задачах и сроках</p>
-            <p class="case-card__result-detail">Ответственные зафиксированы, а к следующему совещанию готов список поручений для проверки.</p>
-          </div>
-        </article>
-
-        <article class="case-card" data-case-slide data-case-kind="real" data-niche="operations" role="group" aria-roledescription="слайд" aria-label="Слайд 8 из 14">
+        <article class="case-card" data-case-slide data-case-kind="real" data-niche="operations" role="group" aria-roledescription="слайд" aria-label="Слайд 5 из 14" id="baza-case-slide-8">
           <div class="case-card__header" data-case-header>
             <span class="case-card__badge" data-case-category>Производство · планирование смен</span>
-            <span data-case-position data-case-suffix="">Слайд 8 из 14</span>
+            <span data-case-position data-case-suffix="">Слайд 5 из 14</span>
           </div>
-          <h3 class="case-card__title" data-case-title>Производство получает выполнимый план на каждую смену</h3>
+          <h3 class="case-card__title" data-case-title>План смены опирается на реальные ресурсы производства</h3>
           <div class="case-card__description">
             <h4 class="case-card__label">Как работает решение</h4>
             <div class="case-card__copy">
-              <p>ИИ сопоставляет текущие заказы с табелем сотрудников, производственными участками и нормативами времени. Для каждой смены рассчитывает доступные часы и на их основе формирует заказ-наряды: какие работы выполнить сегодня и как распределить их по мощности участков.</p>
-              <p>Если состав смены меняется, план пересчитывается. В него закладывается примерно 85% доступной мощности, а оставшиеся 15% сохраняются для срочных задач и нештатных ситуаций. Руководитель получает задания, рассчитанные на реальное число людей и рабочие часы.</p>
+              <p>ИИ сопоставляет текущие заказы с табелем сотрудников, производственными участками и нормативами времени. Рассчитывает доступные часы на каждую смену и формирует заказ-наряды: какие работы выполнить сегодня и как распределить их по участкам с учётом реального состава команды.</p>
+              <div class="case-card__more">
+                <button type="button" class="case-card__more-button" data-case-more aria-controls="case-details-8" aria-expanded="true" hidden>Подробнее о работе</button>
+                <div id="case-details-8" data-case-more-content>
+                  <p>При изменении числа сотрудников план пересчитывается. Руководитель получает задания, которые соотносятся с доступными рабочими часами. Часть мощности заранее сохраняется для срочных заказов и нештатных ситуаций, чтобы учитывать изменения в течение смены.</p>
+                </div>
+              </div>
             </div>
           </div>
           <div class="case-card__result">
@@ -922,129 +895,234 @@
           </div>
         </article>
 
-        <article class="case-card" data-case-slide data-case-kind="real" data-niche="finance" role="group" aria-roledescription="слайд" aria-label="Слайд 9 из 14">
+        <article class="case-card" data-case-slide data-case-kind="real" data-niche="sales" role="group" aria-roledescription="слайд" aria-label="Слайд 6 из 14" id="baza-case-slide-1">
           <div class="case-card__header" data-case-header>
-            <span class="case-card__badge" data-case-category>Финансы · дебиторская задолженность</span>
-            <span data-case-position data-case-suffix="">Слайд 9 из 14</span>
+            <span class="case-card__badge" data-case-category>Производство мебели</span>
+            <span data-case-position data-case-suffix="">Слайд 6 из 14</span>
           </div>
-          <h3 class="case-card__title" data-case-title>Просроченные оплаты сразу попадают в работу</h3>
+          <h3 class="case-card__title" data-case-title>Продвижение на Avito с учётом качества заявок</h3>
           <div class="case-card__description">
-            <h4 class="case-card__label">Как это устроено</h4>
+            <h4 class="case-card__label">Что берёт на себя ИИ</h4>
             <div class="case-card__copy">
-              <p>ИИ объединяет CRM, таблицы оплат, закупки, данные о поставщиках и дебиторской задолженности. Сопоставляет статусы сделок с поступившими деньгами, ожидаемыми платежами и обязательствами компании. Выделяет сделки без оплаты, просрочки и незакрытые документы.</p>
-              <p>В финансовой сводке руководитель видит, где находятся деньги, какой платёж задерживается и кто отвечает за решение. Данные доступны в любой момент — прежде полную картину собирали только к концу месяца. Сводка помогает сразу определить, с какой просрочкой нужно работать и к кому обратиться за её закрытием.</p>
+              <p>ИИ собирает показы, просмотры, контакты и стоимость продвижения объявлений мебельного производства. Разбирает переписки с покупателями, отделяет обращения по продукции компании от нецелевых и связывает их с конкретными объявлениями. Так оценка продвижения учитывает и статистику, и содержание заявок.</p>
+              <div class="case-card__more">
+                <button type="button" class="case-card__more-button" data-case-more aria-controls="case-details-1" aria-expanded="true" hidden>Подробнее о работе</button>
+                <div id="case-details-1" data-case-more-content>
+                  <p>По итогам анализа система меняет заголовки, описания и ставки продвижения. Команда получает сводку с конверсией, качеством обращений и списком внесённых изменений: можно проверить, какие объявления привлекают нужных покупателей.</p>
+                </div>
+              </div>
             </div>
           </div>
           <div class="case-card__result">
             <h4 class="case-card__label">Результат</h4>
-            <p class="case-card__result-main">Просроченные оплаты закрываются быстрее</p>
-            <p class="case-card__result-detail">Руководитель видит зависшие платежи и ответственных в текущей сводке, не дожидаясь конца месяца.</p>
+            <p class="case-card__result-main">Ежедневное ведение Avito — без ручных правок</p>
+            <p class="case-card__result-detail">Команда контролирует продвижение по готовой аналитике и списку внесённых изменений.</p>
           </div>
         </article>
 
-        <article class="case-card" data-case-slide data-case-kind="real" data-niche="team" role="group" aria-roledescription="слайд" aria-label="Слайд 10 из 14">
+        <article class="case-card" data-case-slide data-case-kind="real" data-niche="operations" role="group" aria-roledescription="слайд" aria-label="Слайд 7 из 14" id="baza-case-slide-6">
+          <div class="case-card__header" data-case-header>
+            <span class="case-card__badge" data-case-category>Закупки · торговля и производство</span>
+            <span data-case-position data-case-suffix="">Слайд 7 из 14</span>
+          </div>
+          <h3 class="case-card__title" data-case-title>Расчёт потребности с учётом поставщиков и логистики</h3>
+          <div class="case-card__description">
+            <h4 class="case-card__label">Решение в действии</h4>
+            <div class="case-card__copy">
+              <p>ИИ рассчитывает закупки по остаткам, продажам и истории спроса из 1С. Учитывает сезонность, минимальный и максимальный запас, новые заявки отдела продаж и вклад товаров в оборот. Сопоставляет поставщиков по цене, срокам и логистике, объединяет подходящие партии в один рейс.</p>
+              <div class="case-card__more">
+                <button type="button" class="case-card__more-button" data-case-more aria-controls="case-details-6" aria-expanded="true" hidden>Подробнее о работе</button>
+                <div id="case-details-6" data-case-more-content>
+                  <p>В ежедневном плане указаны товар, количество, поставщик, заказ клиента и нужная дата. Снабженцу остаётся согласовать условия и рейсы: потребность и состав поставок уже рассчитаны по данным компании.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="case-card__result">
+            <h4 class="case-card__label">Результат</h4>
+            <p class="case-card__result-main">Снабженец согласовывает закупки по готовому плану</p>
+            <p class="case-card__result-detail">Расчёты и сверки автоматизированы; рабочее время сотрудника освобождено для переговоров с поставщиками и водителями.</p>
+          </div>
+        </article>
+
+        <article class="case-card" data-case-slide data-case-kind="real" data-niche="team" role="group" aria-roledescription="слайд" aria-label="Слайд 8 из 14" id="baza-case-slide-7">
+          <div class="case-card__header" data-case-header>
+            <span class="case-card__badge" data-case-category>Командная работа · совещания</span>
+            <span data-case-position data-case-suffix="">Слайд 8 из 14</span>
+          </div>
+          <h3 class="case-card__title" data-case-title>Протокол и повестка из записи совещания</h3>
+          <div class="case-card__description">
+            <h4 class="case-card__label">Что берёт на себя ИИ</h4>
+            <div class="case-card__copy">
+              <p>ИИ разбирает запись встречи: выделяет принятые решения, поручения и открытые вопросы, составляет краткое резюме. Участники получают письмо с договорённостями и могут вернуться к нему во время работы. Информация сохраняется в общем протоколе, доступном для проверки после совещания.</p>
+              <div class="case-card__more">
+                <button type="button" class="case-card__more-button" data-case-more aria-controls="case-details-7" aria-expanded="true" hidden>Подробнее о работе</button>
+                <div id="case-details-7" data-case-more-content>
+                  <p>Перед следующей встречей система готовит выжимку по прошлому обсуждению: что осталось незавершённым, какие решения ещё нужны и какие поручения следует проверить. Руководитель получает основу повестки, связанную с предыдущими договорённостями.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="case-card__result">
+            <h4 class="case-card__label">Результат</h4>
+            <p class="case-card__result-main">У задач встречи есть сроки и ответственные</p>
+            <p class="case-card__result-detail">Команда может проверить, кому поручена работа и к какому сроку она должна быть выполнена.</p>
+          </div>
+        </article>
+
+        <article class="case-card" data-case-slide data-case-kind="real" data-niche="finance" role="group" aria-roledescription="слайд" aria-label="Слайд 9 из 14" id="baza-case-slide-9">
+          <div class="case-card__header" data-case-header>
+            <span class="case-card__badge" data-case-category>Финансы · дебиторская задолженность</span>
+            <span data-case-position data-case-suffix="">Слайд 9 из 14</span>
+          </div>
+          <h3 class="case-card__title" data-case-title>Финансы связаны с продажами и закупками</h3>
+          <div class="case-card__description">
+            <h4 class="case-card__label">Как это устроено</h4>
+            <div class="case-card__copy">
+              <p>ИИ объединяет CRM, таблицы оплат, закупки и данные о дебиторской задолженности. Сопоставляет статусы сделок с поступившими деньгами, ожидаемыми платежами и обязательствами перед поставщиками. Выделяет сделки без оплаты, просрочки и незакрытые документы, которые требуют внимания.</p>
+              <div class="case-card__more">
+                <button type="button" class="case-card__more-button" data-case-more aria-controls="case-details-9" aria-expanded="true" hidden>Подробнее о работе</button>
+                <div id="case-details-9" data-case-more-content>
+                  <p>В сводке указаны зависшие платежи, связанные с ними риски и ответственные за решение. Руководитель может перейти от общей картины к конкретной проблеме: определить, по какой сделке задерживаются деньги и к кому обратиться за её закрытием.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="case-card__result">
+            <h4 class="case-card__label">Результат</h4>
+            <p class="case-card__result-main">Деньги и обязательства видны в любой момент</p>
+            <p class="case-card__result-detail">Прежде полную финансовую картину собирали только к концу месяца.</p>
+          </div>
+        </article>
+
+        <article class="case-card" data-case-slide data-case-kind="real" data-niche="team" role="group" aria-roledescription="слайд" aria-label="Слайд 10 из 14" id="baza-case-slide-10">
           <div class="case-card__header" data-case-header>
             <span class="case-card__badge" data-case-category>HR · обучение и адаптация</span>
             <span data-case-position data-case-suffix="">Слайд 10 из 14</span>
           </div>
-          <h3 class="case-card__title" data-case-title>ИИ ведёт стажёра по программе адаптации</h3>
+          <h3 class="case-card__title" data-case-title>Адаптация сотрудников по программе компании</h3>
           <div class="case-card__description">
             <h4 class="case-card__label">Что берёт на себя ИИ</h4>
             <div class="case-card__copy">
-              <p>В основу решения положили программу адаптации компании. ИИ ведёт по ней стажёра, адаптирует обучение под его прохождение, проверяет ответы и разбирает дневные отчёты. Учитывает выполненные задания, затраченное время, ошибки и темы, с которыми возникли трудности.</p>
-              <p>По итогам обучения руководитель получает заключение: что сотрудник освоил, где остаются пробелы и готов ли он к самостоятельной работе. Оценка опирается на задания и динамику прохождения. Срок стажировки сохраняется, а ежедневное сопровождение и проверку берёт на себя ИИ.</p>
+              <p>ИИ ведёт стажёра по заранее созданной программе компании и адаптирует обучение под его прохождение. Проверяет ответы, разбирает дневные отчёты, учитывает выполненные задания, затраченное время и трудности. Так обучение опирается на единый порядок, а прогресс фиксируется по ходу работы.</p>
+              <div class="case-card__more">
+                <button type="button" class="case-card__more-button" data-case-more aria-controls="case-details-10" aria-expanded="true" hidden>Подробнее о работе</button>
+                <div id="case-details-10" data-case-more-content>
+                  <p>По итогам система готовит заключение: какие темы освоены, где остаются пробелы, как менялось качество выполнения заданий. Руководитель получает материал для оценки готовности сотрудника к самостоятельной работе.</p>
+                </div>
+              </div>
             </div>
           </div>
           <div class="case-card__result">
             <h4 class="case-card__label">Результат</h4>
             <p class="case-card__result-main">Стажёр обучается без ежедневного участия наставника</p>
-            <p class="case-card__result-detail">Руководитель подключается к итоговой оценке и принимает решение по результатам выполненных заданий.</p>
+            <p class="case-card__result-detail">Срок стажировки сохраняется. Руководитель подключается к итоговой оценке и принимает решение по сотруднику.</p>
           </div>
         </article>
 
-        <article class="case-card" data-case-slide data-case-kind="real" data-niche="team" role="group" aria-roledescription="слайд" aria-label="Слайд 11 из 14">
+        <article class="case-card" data-case-slide data-case-kind="real" data-niche="team" role="group" aria-roledescription="слайд" aria-label="Слайд 11 из 14" id="baza-case-slide-11">
           <div class="case-card__header" data-case-header>
             <span class="case-card__badge" data-case-category>Команда · внутренняя база знаний</span>
             <span data-case-position data-case-suffix="">Слайд 11 из 14</span>
           </div>
-          <h3 class="case-card__title" data-case-title>Ответы по правилам компании доступны в одном сервисе</h3>
+          <h3 class="case-card__title" data-case-title>База знаний на основе документов компании</h3>
           <div class="case-card__description">
             <h4 class="case-card__label">Что мы внедрили</h4>
             <div class="case-card__copy">
-              <p>Собрали в базу знаний регламенты, инструкции, описания продуктов, коммерческие предложения, правила процессов и шаблоны компании. Подключили к ним ИИ и сделали отдельный сервис, в котором сотрудник может задать вопрос по текущей рабочей задаче.</p>
-              <p>Сервис отвечает на основе документов компании: объясняет порядок действий, подбирает нужный шаблон и описывает ожидаемый результат. Сотруднику проще разобраться в знакомой процедуре или новой задаче, а одинаковые вопросы больше не требуют повторного объяснения руководителя.</p>
+              <p>Собрали регламенты, инструкции, описания продуктов, коммерческие предложения, правила процессов и шаблоны в общую базу знаний. Подключили ИИ и сделали отдельный сервис для вопросов по рабочим задачам. Сотруднику достаточно описать свою ситуацию, чтобы получить ответ на основе документов компании.</p>
+              <div class="case-card__more">
+                <button type="button" class="case-card__more-button" data-case-more aria-controls="case-details-11" aria-expanded="true" hidden>Подробнее о работе</button>
+                <div id="case-details-11" data-case-more-content>
+                  <p>Сервис объясняет порядок действий, подбирает подходящий шаблон и описывает ожидаемый результат. Одной и той же процедурой можно пользоваться при знакомой задаче или при освоении новой работы.</p>
+                </div>
+              </div>
             </div>
           </div>
           <div class="case-card__result">
             <h4 class="case-card__label">Результат</h4>
-            <p class="case-card__result-main">Сотрудники решают типовые вопросы без руководителя</p>
-            <p class="case-card__result-detail">Порядок действий и рабочие шаблоны они получают из базы знаний компании.</p>
+            <p class="case-card__result-main">Типовые вопросы решаются без обращения к руководителю</p>
+            <p class="case-card__result-detail">Сотрудники получают порядок действий из правил компании и используют единые рабочие шаблоны.</p>
           </div>
         </article>
 
-        <article class="case-card" data-case-slide data-case-kind="real" data-niche="finance" role="group" aria-roledescription="слайд" aria-label="Слайд 12 из 14">
+        <article class="case-card" data-case-slide data-case-kind="real" data-niche="finance" role="group" aria-roledescription="слайд" aria-label="Слайд 12 из 14" id="baza-case-slide-12">
           <div class="case-card__header" data-case-header>
             <span class="case-card__badge" data-case-category>Юридический отдел · документы</span>
             <span data-case-position data-case-suffix="">Слайд 12 из 14</span>
           </div>
-          <h3 class="case-card__title" data-case-title>ИИ проверяет договор и готовит документы по сделке</h3>
+          <h3 class="case-card__title" data-case-title>Проверка договора и подготовка документов по сделке</h3>
           <div class="case-card__description">
             <h4 class="case-card__label">Что делает система</h4>
             <div class="case-card__copy">
-              <p>ИИ проверяет договор по правилам компании: реквизиты, сроки, ответственность сторон, условия оплаты, приложения и отклонения от принятого шаблона. Для юриста собирает карту рисков и замечаний по конкретным пунктам. Раньше первичная проверка одного документа занимала от 1 часа.</p>
-              <p>Если проверка не выявила критичных проблем, ИИ может подготовить счёт и акт с нужными реквизитами и датами. Юрист получает материалы для согласования, а менеджер — документы для следующего шага по сделке. Повторно переносить одни и те же данные вручную не требуется.</p>
+              <p>ИИ проверяет договор по правилам компании: реквизиты, сроки, ответственность сторон, условия оплаты, приложения и отклонения от шаблона. Для юриста собирает карту рисков с замечаниями по конкретным пунктам. Это даёт основу для дальнейшего согласования документа.</p>
+              <div class="case-card__more">
+                <button type="button" class="case-card__more-button" data-case-more aria-controls="case-details-12" aria-expanded="true" hidden>Подробнее о работе</button>
+                <div id="case-details-12" data-case-more-content>
+                  <p>Если первичная проверка не выявила критичных проблем, система может подготовить счёт и акт с нужными реквизитами и датами. Менеджер получает документы для следующего шага по сделке без повторного ручного переноса данных.</p>
+                </div>
+              </div>
             </div>
           </div>
           <div class="case-card__result">
             <h4 class="case-card__label">Результат</h4>
             <p class="case-card__result-main">Первичная проверка договора — за 10 минут</p>
-            <p class="case-card__result-detail">Юрист получает карту рисков; счёт и акт готовятся при отсутствии критичных проблем.</p>
+            <p class="case-card__result-detail">Раньше она занимала от 1 часа. Итог проверки — карта рисков для юриста.</p>
           </div>
         </article>
 
-        <article class="case-card" data-case-slide data-case-kind="real" data-niche="management" role="group" aria-roledescription="слайд" aria-label="Слайд 13 из 14">
+        <article class="case-card" data-case-slide data-case-kind="real" data-niche="management" role="group" aria-roledescription="слайд" aria-label="Слайд 13 из 14" id="baza-case-slide-13">
           <div class="case-card__header" data-case-header>
             <span class="case-card__badge" data-case-category>Контроль качества · процессы и KPI</span>
             <span data-case-position data-case-suffix="">Слайд 13 из 14</span>
           </div>
-          <h3 class="case-card__title" data-case-title>Контроль задач показывает, где нужен руководитель</h3>
+          <h3 class="case-card__title" data-case-title>Контроль выполнения процессов по данным CRM</h3>
           <div class="case-card__description">
             <h4 class="case-card__label">Решение в действии</h4>
             <div class="case-card__copy">
-              <p>Связали показатели сотрудников, CRM, задачи и контрольные точки процессов. ИИ сопоставляет фактические действия с правилами компании: проверяет прохождение этапов, заполнение данных, сроки и движение сделок. Фиксирует выполненную работу и отклонения по каждому сотруднику.</p>
-              <p>При критичном отклонении ИИ сразу отправляет сигнал руководителю, а в конце периода собирает общий отчёт. В нём видно, какая задача потерялась, где пропущен этап и на чём остановилась сделка. Руководитель может вмешаться в конкретную проблему в тот момент, когда её ещё можно исправить.</p>
+              <p>ИИ связан с показателями сотрудников, CRM, задачами и контрольными точками процессов. Сопоставляет фактические действия с правилами компании: проверяет прохождение этапов, заполнение данных, сроки и движение сделок. Фиксирует выполненную работу и отклонения по каждому сотруднику.</p>
+              <div class="case-card__more">
+                <button type="button" class="case-card__more-button" data-case-more aria-controls="case-details-13" aria-expanded="true" hidden>Подробнее о работе</button>
+                <div id="case-details-13" data-case-more-content>
+                  <p>В отчёте видно, какая задача потерялась, где пропущен этап и на чём остановилась сделка. Общая сводка готовится в конце периода; для критичных отклонений предусмотрено отдельное уведомление с указанием проблемного участка и сотрудника.</p>
+                </div>
+              </div>
             </div>
           </div>
           <div class="case-card__result">
             <h4 class="case-card__label">Результат</h4>
-            <p class="case-card__result-main">Руководитель узнаёт о критичном нарушении сразу</p>
-            <p class="case-card__result-detail">В сигнале видно, где остановилась работа и по какому сотруднику требуется вмешательство.</p>
+            <p class="case-card__result-main">О критичном нарушении руководитель узнаёт сразу</p>
+            <p class="case-card__result-detail">Можно вмешаться по ходу работы, пока пропущенный этап, просрочку или ошибку ещё можно исправить.</p>
           </div>
         </article>
 
-        <article class="case-card" data-case-slide data-case-kind="real" data-niche="management" role="group" aria-roledescription="слайд" aria-label="Слайд 14 из 14">
+        <article class="case-card" data-case-slide data-case-kind="real" data-niche="management" role="group" aria-roledescription="слайд" aria-label="Слайд 14 из 14" id="baza-case-slide-14">
           <div class="case-card__header" data-case-header>
             <span class="case-card__badge" data-case-category>Управление · показатели компании</span>
             <span data-case-position data-case-suffix="">Слайд 14 из 14</span>
           </div>
-          <h3 class="case-card__title" data-case-title>Управленческая сводка объясняет, где бизнес теряет результат</h3>
+          <h3 class="case-card__title" data-case-title>Управленческая сводка по ключевым направлениям</h3>
           <div class="case-card__description">
             <h4 class="case-card__label">Как работает решение</h4>
             <div class="case-card__copy">
-              <p>ИИ собирает ключевые данные продаж, производства, склада, закупок, финансов и HR из рабочих систем компании. Объединяет их в управленческую сводку и распределяет показатели по трём зонам: всё хорошо, требуется внимание, критичная ситуация.</p>
-              <p>Для каждой проблемной зоны объясняет, что происходит, какие процессы тормозят результат и кто за них отвечает. Собственник получает приоритеты: за чем наблюдать, где разобраться в причинах и куда направить внимание сейчас. Подготовка сводки и первичный разбор показателей выполняются автоматически.</p>
+              <p>ИИ собирает данные продаж, производства, склада, закупок, финансов и HR из рабочих систем компании. Объединяет их и оценивает состояние показателей по трём зонам: всё хорошо, требуется внимание, критичная ситуация. Такой разбор помогает увидеть связи между отдельными направлениями.</p>
+              <div class="case-card__more">
+                <button type="button" class="case-card__more-button" data-case-more aria-controls="case-details-14" aria-expanded="true" hidden>Подробнее о работе</button>
+                <div id="case-details-14" data-case-more-content>
+                  <p>Для проблемных зон система объясняет, что происходит, отмечает риски и процессы, которые тормозят работу. Собственник получает интерпретацию показателей и может определить, где достаточно наблюдения, а где нужно вмешательство.</p>
+                </div>
+              </div>
             </div>
           </div>
           <div class="case-card__result">
             <h4 class="case-card__label">Результат</h4>
-            <p class="case-card__result-main">Собственник знает, где требуется его решение</p>
-            <p class="case-card__result-detail">В одной сводке собраны проблемы, их причины, ответственные и приоритеты действий.</p>
+            <p class="case-card__result-main">Проблемы, приоритеты и ответственные — в одной сводке</p>
+            <p class="case-card__result-detail">Собственник получает готовый разбор показателей и тратит меньше времени на ручной контроль.</p>
           </div>
         </article>
         </div>
       </div>
 
-      <div class="cases-section__controls">
+      <div class="cases-section__controls" role="group" aria-label="Навигация под кейсом">
         <div class="cases-section__navigation">
           <button type="button" data-case-prev aria-label="Предыдущий слайд" class="cases-section__arrow">←</button>
           <button type="button" data-case-next aria-label="Следующий слайд" class="cases-section__arrow">→</button>
@@ -1545,6 +1623,6 @@
   </div>
 </dialog>
 
-<script src="../js/ai-landing-effects.js?v=20260906-cases" defer></script>
+<script src="../js/ai-landing-effects.js?v=20260906-cases-v2" defer></script>
 </body>
 </html>

@@ -590,15 +590,22 @@
 
   if (casesTrack && casesRegion) {
     const allSlides = Array.from(casesTrack.querySelectorAll('[data-case-slide]'));
-    const previousButton = doc.querySelector('[data-case-prev]');
-    const nextButton = doc.querySelector('[data-case-next]');
-    const currentElement = doc.querySelector('[data-case-current]');
-    const totalElement = doc.querySelector('[data-case-total]');
+    const previousButtons = Array.from(doc.querySelectorAll('[data-case-prev]'));
+    const nextButtons = Array.from(doc.querySelectorAll('[data-case-next]'));
+    const currentElements = Array.from(doc.querySelectorAll('[data-case-current]'));
+    const totalElements = Array.from(doc.querySelectorAll('[data-case-total]'));
+    const mobileCaseLayout = window.matchMedia('(max-width:760px)');
+    const caseDescriptions = allSlides.map((slide) => ({
+      button: slide.querySelector('[data-case-more]'),
+      content: slide.querySelector('[data-case-more-content]'),
+      expanded: false,
+    })).filter(({ button, content }) => button && content);
     const dotsContainer = doc.querySelector('[data-case-dots]');
     const filters = Array.from(doc.querySelectorAll('[data-case-filter]'));
     let visibleSlides = allSlides.slice();
     let currentIndex = 0;
     let dots = [];
+    let pendingCaseIndex = null;
     let carouselFrame = 0;
     let restoreMotionFrame = 0;
     let filterResetting = false;
@@ -615,7 +622,8 @@
 
     const caseSlideLeft = (slide) => {
       const firstSlide = visibleSlides[0];
-      return firstSlide ? slide.offsetLeft - firstSlide.offsetLeft : 0;
+      const left = firstSlide ? slide.offsetLeft - firstSlide.offsetLeft : 0;
+      return Math.max(0, Math.min(left, casesTrack.scrollWidth - casesTrack.clientWidth));
     };
 
     const nearestCaseIndex = () => {
@@ -656,17 +664,21 @@
     };
 
     const paintCarousel = () => {
-      if (currentElement) currentElement.textContent = String(visibleSlides.length ? currentIndex + 1 : 0);
-      if (totalElement) totalElement.textContent = String(visibleSlides.length);
+      currentElements.forEach((element) => {
+        element.textContent = String(visibleSlides.length ? currentIndex + 1 : 0);
+      });
+      totalElements.forEach((element) => {
+        element.textContent = String(visibleSlides.length);
+      });
 
-      if (previousButton) {
-        previousButton.disabled = !visibleSlides.length || currentIndex <= 0;
-        previousButton.style.opacity = previousButton.disabled ? '.35' : '1';
-      }
-      if (nextButton) {
-        nextButton.disabled = !visibleSlides.length || currentIndex >= visibleSlides.length - 1;
-        nextButton.style.opacity = nextButton.disabled ? '.35' : '1';
-      }
+      previousButtons.forEach((button) => {
+        button.disabled = !visibleSlides.length || currentIndex <= 0;
+        button.style.opacity = button.disabled ? '.35' : '1';
+      });
+      nextButtons.forEach((button) => {
+        button.disabled = !visibleSlides.length || currentIndex >= visibleSlides.length - 1;
+        button.style.opacity = button.disabled ? '.35' : '1';
+      });
 
       visibleSlides.forEach((slide, index) => {
         const isActive = index === currentIndex;
@@ -681,10 +693,13 @@
     const goToCase = (nextIndex, shouldScroll = true) => {
       currentIndex = Math.max(0, Math.min(visibleSlides.length - 1, nextIndex));
       const slide = visibleSlides[currentIndex];
+      pendingCaseIndex = null;
 
       if (slide && shouldScroll) {
+        const left = caseSlideLeft(slide);
+        if (Math.abs(casesTrack.scrollLeft - left) > 1) pendingCaseIndex = currentIndex;
         casesTrack.scrollTo({
-          left: caseSlideLeft(slide),
+          left,
           behavior: reduceMotion.matches ? 'auto' : 'smooth',
         });
       }
@@ -730,6 +745,7 @@
       }
       if (restoreMotionFrame) window.cancelAnimationFrame(restoreMotionFrame);
       filterResetting = true;
+      pendingCaseIndex = null;
       casesTrack.style.scrollBehavior = 'auto';
       casesTrack.style.overflowAnchor = 'none';
 
@@ -780,10 +796,33 @@
         if (Number.isInteger(nextIndex)) goToCase(nextIndex);
       });
     }
-    if (previousButton) on(previousButton, 'click', () => goToCase(currentIndex - 1));
-    if (nextButton) on(nextButton, 'click', () => goToCase(currentIndex + 1));
+    previousButtons.forEach((button) => on(button, 'click', () => goToCase(currentIndex - 1)));
+    nextButtons.forEach((button) => on(button, 'click', () => goToCase(currentIndex + 1)));
+
+    const syncCaseDescriptions = () => {
+      caseDescriptions.forEach(({ button, content, expanded }) => {
+        const isOpen = !mobileCaseLayout.matches || expanded;
+        button.hidden = !mobileCaseLayout.matches;
+        button.setAttribute('aria-expanded', String(isOpen));
+        button.textContent = isOpen ? 'Свернуть подробности' : 'Подробнее о работе';
+        content.hidden = !isOpen;
+      });
+      syncCaseHeight();
+    };
+
+    caseDescriptions.forEach((description) => {
+      on(description.button, 'click', () => {
+        description.expanded = !description.expanded;
+        syncCaseDescriptions();
+      });
+    });
+    onMediaChange(mobileCaseLayout, syncCaseDescriptions);
+    syncCaseDescriptions();
+    const topControls = doc.querySelector('[data-case-top-controls]');
+    if (topControls) topControls.hidden = false;
 
     on(casesRegion, 'keydown', (event) => {
+      if (event.target !== casesRegion) return;
       if (event.key === 'ArrowRight') {
         event.preventDefault();
         goToCase(currentIndex + 1);
@@ -799,6 +838,12 @@
 
       carouselFrame = window.requestAnimationFrame(() => {
         carouselFrame = 0;
+        syncCaseHeight();
+        if (pendingCaseIndex !== null) {
+          const target = visibleSlides[pendingCaseIndex];
+          if (target && Math.abs(casesTrack.scrollLeft - caseSlideLeft(target)) > 1) return;
+          pendingCaseIndex = null;
+        }
         const nearestIndex = nearestCaseIndex();
 
         if (nearestIndex !== currentIndex) {
@@ -813,8 +858,19 @@
     let dragStartScroll = 0;
     let dragDistance = 0;
 
+    const cancelPendingCase = () => {
+      if (pendingCaseIndex === null) return;
+      pendingCaseIndex = null;
+      currentIndex = nearestCaseIndex();
+      paintCarousel();
+    };
+
+    on(casesTrack, 'wheel', cancelPendingCase, { passive: true });
+
     on(casesTrack, 'pointerdown', (event) => {
+      cancelPendingCase();
       if (event.pointerType === 'touch' || event.button !== 0) return;
+      if (event.target.closest('button, a, input, select, textarea, summary')) return;
       dragging = true;
       dragDistance = 0;
       dragStartX = event.clientX;

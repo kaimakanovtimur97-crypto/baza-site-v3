@@ -47,11 +47,18 @@ a:hover{color:var(--acc)}
 .case-card__description{display:flex;flex-direction:column;gap:16px;min-width:0}
 .case-card__copy{display:grid;grid-template-columns:1fr 1fr;gap:18px clamp(24px,4vw,56px)}
 .case-card__copy p{min-width:0;font-size:18px;line-height:1.6;color:#454b59;text-wrap:pretty}
+.case-card__more{min-width:0}
+.case-card__more-button{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:8px 0;font-size:15px;font-weight:500;line-height:1.4;color:var(--accd);text-align:left;text-decoration:underline;text-underline-offset:4px}
+.case-card__more-button::after{content:"+";font-size:21px;line-height:1;text-decoration:none}
+.case-card__more-button[aria-expanded="true"]::after{content:"−"}
+.case-card__more-button[hidden],[data-case-more-content][hidden]{display:none}
+.case-card__more-button:focus-visible{outline-color:var(--accd)}
 .case-card__label{font:500 12px/1.5 'IBM Plex Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--accd)}
 .case-card__result{display:flex;flex-direction:column;gap:14px;padding:clamp(24px,3vw,36px);border-radius:clamp(18px,2.2vw,26px);background:var(--accs);color:var(--accd)}
 .case-card__result-main{max-width:29ch;font:600 clamp(32px,4vw,52px)/1.06 'Gilroy','Jost',sans-serif;letter-spacing:-.035em;text-wrap:balance;overflow-wrap:break-word;font-variant-numeric:tabular-nums}
 .case-card__result-detail{max-width:78ch;font-size:16px;line-height:1.5;color:#35456c;text-wrap:pretty}
 .cases-section__controls{display:flex;flex-wrap:wrap;gap:14px 20px;align-items:center;justify-content:space-between;margin-top:clamp(20px,2.6vw,32px)}
+.cases-section__controls--top{display:none}
 .cases-section__navigation{display:flex;align-items:center;gap:10px}
 .cases-section__arrow{display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:50%;border:1px solid rgba(255,255,255,.5);font-size:21px;color:#fff;transition:background .2s,color .2s,opacity .2s}
 .cases-section__arrow:disabled{cursor:default}
@@ -88,11 +95,17 @@ body{--rv:14px;--rt:520ms}
 [data-case-slide]>h3{max-width:none !important;font-size:clamp(25px,7.5vw,31px) !important;line-height:1.04 !important;text-wrap:balance}
 .case-card__copy{grid-template-columns:minmax(0,1fr);gap:14px}
 .case-card__copy p{font-size:17px;line-height:1.55}
+.case-card__more-button[aria-expanded="true"]{margin-bottom:8px}
 .case-card__result-main{font-size:clamp(30px,8.4vw,42px);text-wrap:pretty}
 .case-card__result-detail{font-size:15px}
 .case-card__label{font-size:11px;letter-spacing:.1em}
 .cases-section__title{max-width:20ch}
+.cases-section{padding-block:56px}
+.cases-section__heading{gap:18px;margin-bottom:24px}
 .cases-section__controls,.cases-section__arrow{scroll-margin-bottom:110px}
+.cases-section__controls--top:not([hidden]){display:flex;flex-wrap:nowrap;gap:16px;margin-top:0;margin-bottom:16px}
+.cases-section__controls--top .cases-section__counter{margin-left:0}
+.cases-section__controls--top .cases-section__arrow{width:44px;height:44px}
 #faq [data-mobile-static-reveal],#faq [data-mobile-static-reveal] [data-reveal]{--r:1 !important;opacity:1 !important;transform:none !important;transition:none !important;animation:none !important}
 }
 @media (prefers-reduced-motion: reduce){*{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}html{scroll-behavior:auto}}
