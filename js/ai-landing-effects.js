@@ -641,9 +641,18 @@
         const marker = dot.querySelector('span');
         if (marker) {
           marker.style.width = isActive ? '26px' : '10px';
-          marker.style.background = isActive ? 'var(--accd)' : 'rgba(25,25,25,.24)';
+          marker.style.background = isActive ? 'var(--case-dot-active, var(--accd))' : 'var(--case-dot-rest, rgba(25,25,25,.24))';
         }
       });
+    };
+
+    const syncCaseHeight = () => {
+      // Follow the card in view while smooth scrolling, including after font or viewport changes.
+      const slide = visibleSlides[nearestCaseIndex()];
+      if (!slide) return;
+      const trackStyle = window.getComputedStyle(casesTrack);
+      const padding = parseFloat(trackStyle.paddingTop) + parseFloat(trackStyle.paddingBottom);
+      casesTrack.style.height = `${Math.ceil(slide.getBoundingClientRect().height + padding)}px`;
     };
 
     const paintCarousel = () => {
@@ -666,6 +675,7 @@
       });
 
       paintDots();
+      syncCaseHeight();
     };
 
     const goToCase = (nextIndex, shouldScroll = true) => {
@@ -841,6 +851,11 @@
     on(casesTrack, 'pointerup', finishDrag);
     on(casesTrack, 'pointercancel', finishDrag);
     on(window, 'resize', () => goToCase(currentIndex, true), { passive: true });
+
+    if ('ResizeObserver' in window) {
+      const caseResizeObserver = new ResizeObserver(syncCaseHeight);
+      allSlides.forEach((slide) => caseResizeObserver.observe(slide));
+    }
     onMediaChange(reduceMotion, syncCarouselMotion);
     const initialFilter = filters.find((filter) => filter.getAttribute('aria-pressed') === 'true');
     applyFilter(initialFilter?.dataset.caseFilter || 'all');
