@@ -59,6 +59,14 @@
     });
   };
 
+  const disableMetrika = () => {
+    window[`disableYaCounter${COUNTER_ID}`] = true;
+    if (window.__bazaMetrikaEnabled && typeof window.ym === 'function') {
+      window.ym(COUNTER_ID, 'destruct');
+    }
+    window.__bazaMetrikaEnabled = false;
+  };
+
   const hideBanner = (banner) => {
     banner.hidden = true;
     banner.remove();
@@ -76,11 +84,11 @@
     banner.innerHTML = `
       <div class="cookie-consent__content">
         <p class="cookie-consent__title" id="cookie-consent-title">Мы используем cookie</p>
-        <p class="cookie-consent__text" id="cookie-consent-description">Необходимые cookie помогают сайту работать. С вашего разрешения Яндекс Метрика будет собирать статистику посещений и взаимодействий, чтобы мы могли улучшать сайт.</p>
+        <p class="cookie-consent__text" id="cookie-consent-description">На сайте автоматически работает Яндекс Метрика: она использует cookie и собирает статистику посещений и взаимодействий. Вы можете отключить дальнейший сбор данных кнопкой «Отключить аналитику».</p>
       </div>
       <div class="cookie-consent__actions">
-        <button class="cookie-consent__button cookie-consent__button--primary" type="button" data-cookie-accept>Разрешить аналитику</button>
-        <button class="cookie-consent__button" type="button" data-cookie-necessary>Только необходимые</button>
+        <button class="cookie-consent__button cookie-consent__button--primary" type="button" data-cookie-accept>Понятно</button>
+        <button class="cookie-consent__button" type="button" data-cookie-necessary>Отключить аналитику</button>
       </div>
     `;
 
@@ -92,6 +100,7 @@
 
     banner.querySelector('[data-cookie-necessary]').addEventListener('click', () => {
       saveConsent(CONSENT_NECESSARY);
+      disableMetrika();
       hideBanner(banner);
     });
 
@@ -99,12 +108,14 @@
   };
 
   const consent = readConsent();
-  if (consent === CONSENT_ANALYTICS) {
-    enableMetrika();
+  // Preserve an explicit opt-out, including choices made before this release.
+  if (consent === CONSENT_NECESSARY) {
+    disableMetrika();
     return;
   }
 
-  if (consent !== CONSENT_NECESSARY) {
+  enableMetrika();
+  if (consent !== CONSENT_ANALYTICS) {
     showBanner();
   }
 })();
